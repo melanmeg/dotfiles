@@ -1,0 +1,57 @@
+
+repo = 'Shougo/deoplete.nvim'
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+[[plugins]]
+repo = 'Shougo/dein.vim' 
+[[plugins]]
+repo = 'deoplete-plugins/deoplete-jedi'
+on_ft = 'python'
+hook_add = '''
+	let g:deoplete#sources#jedi#python_path = '/usr/bin/python3'
+'''
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim' 
+build = 'make'
+[[plugins]]
+repo = 'Shougo/neosnippet.vim' 
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'tpope/vim-surround' 
+[[plugins]]
+repo = 'tpope/vim-fugitive' 
+[[plugins]]
+repo = 'airblade/vim-gitgutter' 
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+[[plugins]]
+repo = 'scrooloose/syntastic' 
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+hook_add = '''
+	let g:webdevicons_enable_denite = 1
+	let g:webdevicons_enable_airline_tabline = 1
+	let g:webdevicons_enable_airline_statusline = 1
+	set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+	set laststatus=2
+	set t_Co=256
+
+	set guifont=Monofur\ Nerd\ Font\ 10
+
+	let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+	let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
+	let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['css'] = ''
+	let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['md'] = ''
+	let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['txt'] = ''
+
+'''
+
+
