@@ -24,7 +24,7 @@ link_to_homedir() {
       if [[ -e "$HOME/`basename $f`" ]];then
         command mv "$HOME/`basename $f`" "$HOME/.dotbackup"
       fi
-      #command ln -snf $f $HOME
+      command ln -snf $f $HOME
     done
   else
     command echo "same install src dest"
