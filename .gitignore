@@ -27,20 +27,7 @@
 !/.tmux/conf/
 !/.tmux/conf/**
 !/.tmux/log/
-!/.gdbinit
-!/.conkycolors/
-!/.conkycolors/**
-!/.i3/
-!/.i3/**
-/.i3/config
-/.i3/config.local
 !/.github/**
-!/.ideavimrc
-!/.Xmodmap
-!/.Xresources
-!/.xinitrc
-!/.xprofile
-!/.xsessionrc
 !/.config/
 !/.config/**
 !/.gitignore_global
@@ -54,4 +41,8 @@
 # Add
 !/.colorrc
 !/.my
+!/.p10k.zsh
+!/.zpreztorc
+!/.zprezto/
+
 
