@@ -2,6 +2,8 @@
 
 ### Ubuntu22.04 ###
 ubuntu_setup() {
+  echo "ubuntu setup started."
+
   sudo apt purge -y needrestart
   sudo timedatectl set-timezone Asia/Tokyo
   sudo systemctl restart rsyslog
