@@ -6,7 +6,6 @@
 cd $HOME && \
 git clone https://github.com/megutamago/dotfiles.git && \
 cd dotfiles && \
-chmod +x .bin/install.sh && \
 ./.bin/install.sh
 ```
 
