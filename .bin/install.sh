@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/bin/bash -ue
 
 helpmsg() {
   echo "Usage: $0 [--help | -h]" >&2

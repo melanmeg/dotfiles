@@ -2,6 +2,8 @@
 
 ## Procedure
 
+- Ubuntu
+
 ```bash
 cd $HOME && \
 git clone https://github.com/megutamago/dotfiles.git && \
