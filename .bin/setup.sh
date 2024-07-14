@@ -3,7 +3,6 @@
 ### Ubuntu22.04 ###
 ubuntu_setup() {
   echo "ubuntu setup started."
-
   sudo apt purge -y needrestart
   sudo timedatectl set-timezone Asia/Tokyo
   sudo systemctl restart rsyslog
@@ -18,13 +17,11 @@ shell_setup() {
   echo "shell setup started."
   sudo apt install -y zsh
   chsh -s "$(which zsh)"
-
 }
 
 main() {
   ubuntu_setup
   shell_setup
-
   echo -e "\e[1;36m Setup completed!!!! \e[m"
 }
 

@@ -5,10 +5,8 @@
 - Ubuntu
 
 ```bash
-cd $HOME && \
 git clone https://github.com/megutamago/dotfiles.git && \
-cd dotfiles && \
-./.bin/install.sh
+./dotfiles/.bin/install.sh
 ```
 
 ```bash

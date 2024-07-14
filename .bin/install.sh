@@ -5,9 +5,9 @@ helpmsg() {
   echo ""
 }
 
-clear_dotfiles() {
+clear_bash_dotfiles() {
   echo "clear dotfiles..."
-  rm -f ~/.*
+  rm -f "$HOME/.bash_history" "$HOME/.bashrc" "$HOME/.profile" "$HOME/.viminfo"
 }
 
 backup_dotfiles() {
