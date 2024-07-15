@@ -5,7 +5,7 @@ pub fn clear_bash_dotfiles(clear_flag: bool) {
     if clear_flag {
         println!("clear dotfiles...");
         run_cmd(
-            r#"rm -vr ~/.???*"#,
+            "rm -vrf ~/.*",
             true,
             None,
         );
@@ -45,9 +45,7 @@ pub fn link_to_homedir(backup_flag: bool, link_flag: bool) {
             // Skip .git directory
             if file_name.to_str() == Some(".git")
                 || file_name.to_str() == Some(".github")
-                || file_name.to_string_lossy() == "develop"
-                || file_name.to_string_lossy() == "LICENSE"
-                || file_name.to_string_lossy() == "README.md"
+                || !file_name.to_string_lossy().starts_with('.')
             {
                 continue;
             }
