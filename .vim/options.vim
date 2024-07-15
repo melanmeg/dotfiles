@@ -33,5 +33,3 @@ endfor
 
 set list
 set listchars=tab:»',trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-# hi NonText    ctermbg=None ctermfg=59 guibg=NONE guifg=None
-# hi SpecialKey ctermbg=None ctermfg=59 guibg=NONE guifg=None
