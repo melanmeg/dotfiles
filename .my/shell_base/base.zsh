@@ -32,3 +32,16 @@ bindkey \^S peco-cdr-selection
 
 setopt IGNOREEOF
 setopt no_beep
+
+# ================================
+#  Added settings
+# ================================
+
+# .colorrc
+eval $(dircolors -b ~/.colorrc)
+alias ls='ls --color=auto'
+
+# prezto
+autoload -Uz promptinit
+promptinit
+prompt skwp

@@ -1,6 +1,4 @@
-# ================================
-#  load settings
-# ================================
+#!/bin/zsh
 
 for file in ~/.my/shell_base/base.zsh; do
   source "$file"

@@ -14,12 +14,3 @@
 # shellcheck disable=SC2046
 eval $(dircolors -b ~/.colorrc)
 alias ls='ls --color=auto'
-
-# .colorrc
-eval $(dircolors -b ~/.colorrc)
-alias ls='ls --color=auto'
-
-# prezto
-autoload -Uz promptinit
-promptinit
-prompt skwp
