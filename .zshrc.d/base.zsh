@@ -15,4 +15,4 @@ alias ls='ls --color=auto'
 # prezto
 autoload -Uz promptinit
 promptinit
-prompt cloud
+prompt skwp
