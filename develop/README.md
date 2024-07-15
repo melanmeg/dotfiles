@@ -23,6 +23,9 @@ docker-compose up -d
 docker-compose exec dot bash
 rm -f ~/dotfiles/.bin/rust_install && cp -a /target/debug/rust_install ~/dotfiles/.bin/
 ~/dotfiles/.bin/rust_install -h
+
+# zsh setup
+sh ~/dotfiles/.bin/zsh_setup.sh
 ```
 
 ## Copy binary
