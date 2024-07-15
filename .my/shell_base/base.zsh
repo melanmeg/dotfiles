@@ -1,19 +1,12 @@
 #!/bin/zsh
 
 # ================================
-#  Loading file
+#  prezto settings
 # ================================
 
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-
-# ================================
-#  Other zsh settings
-# ================================
-
-setopt IGNOREEOF
-setopt no_beep
 
 # ================================
 #  Keybinds
@@ -34,25 +27,8 @@ zle -N peco-cdr-selection
 bindkey \^S peco-cdr-selection
 
 # ================================
-#  Aliases
+#  Other zsh settings
 # ================================
 
-alias sudo='sudo '
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-alias ll='ls -laFh'
-alias history='history -niD'
-alias which='which -a'
-alias zmv='noglob zmv -W'
-alias showclock='watch -n 60 date'
-alias psqltsv='psql -AF $'\''\t'\'''
-
-# ================================
-#  Environment variables
-# ================================
-
-export TIME_STYLE='+%F %T'
-export EDITOR='vim'
-export VISUAL='vim'
-export LESS='-iRW'
+setopt IGNOREEOF
+setopt no_beep

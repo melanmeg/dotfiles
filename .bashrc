@@ -66,12 +66,13 @@ fi
 #  load settings
 # ================================
 
-for file in ~/.my/aliases*; do
+# shellcheck disable=SC2043
+for file in ~/.my/shell_base/base.bash; do
   # shellcheck disable=SC1090
   source "$file"
 done
 
-for file in ~/.bash/*; do
+for file in ~/.my/aliases/*; do
   # shellcheck disable=SC1090
   source "$file"
 done
