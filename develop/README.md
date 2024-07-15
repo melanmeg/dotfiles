@@ -22,6 +22,7 @@ docker-compose build --build-arg CACHEBUST=$(date +%s)
 docker-compose up -d
 docker-compose exec dot bash
 rm -f ~/dotfiles/.bin/rust_install && cp -a /target/debug/rust_install ~/dotfiles/.bin/
+rm -f ~/dotfiles/.bin/rust_install && cp -a /target/release/rust_install ~/dotfiles/.bin/
 ~/dotfiles/.bin/rust_install -h
 
 # zsh setup

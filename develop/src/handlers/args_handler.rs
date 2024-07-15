@@ -55,11 +55,12 @@ pub fn clear_dotfiles(clear_flag: bool) {
                 if !file_name.to_string_lossy().starts_with('.') {
                     continue;
                 }
-
-                let cmd = format!("rm -vf {}", file_path.to_string_lossy());
-                run_cmd(&cmd, true, None);
+                println!("delete {}...", file_path.display());
+                let cmd = format!("rm -rf {}", file_path.to_string_lossy());
+                run_cmd(&cmd, false, None);
             }
         }
+        println!("");
     }
 }
 
@@ -75,6 +76,7 @@ pub fn create_dotbackup(backup_flag: bool) {
         } else {
             println!("{} already exists.", dotbackup_dir);
         }
+        println!("");
     }
 }
 

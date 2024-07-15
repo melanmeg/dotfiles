@@ -27,11 +27,12 @@ fn install_handler(args: Args) {
     create_dotbackup(args.backup);
     clear_dotfiles(args.clear);
     link_to_homedir(args.backup, args.link);
-
+    println!("");
     run_cmd(
         "git config --global include.path ~/.gitconfig_shared",
         true,
         Some(&true),
     );
+    println!("");
     run_cmd(r#"echo -e \e[1;36m Install completed!!!! \e[m"#, true, None);
 }
