@@ -3,7 +3,8 @@ use std::process::Command;
 use std::process::Stdio;
 use termcolor::{Color, ColorChoice, ColorSpec, StandardStream, WriteColor};
 
-pub fn run_cmd(cmd: &str, display: bool) {
+pub fn run_cmd(cmd: &str, display: bool, print: Option<&bool>) {
+    let &print = print.unwrap_or(&false);
     let expanded_cmd = shellexpand::full(cmd).unwrap(); // Expand environment variables
 
     let mut parts = expanded_cmd.split_whitespace();
@@ -16,6 +17,10 @@ pub fn run_cmd(cmd: &str, display: bool) {
         .stderr(Stdio::piped())
         .output()
         .expect("Failed to execute command");
+
+    if print {
+        println!("command execute: {}", cmd);
+    }
 
     if output.status.success() {
         if display {

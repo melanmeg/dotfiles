@@ -7,6 +7,7 @@ pub fn clear_bash_dotfiles(clear_flag: bool) {
         run_cmd(
             r#"rm -vf $HOME/.bash_history $HOME/.bashrc $HOME/.profile $HOME/.viminfo"#,
             true,
+            None,
         );
     }
 }
@@ -64,7 +65,7 @@ pub fn link_to_homedir(backup_flag: bool, link_flag: bool) {
                         file_name.to_string_lossy(),
                         home_dir.to_string_lossy()
                     );
-                    run_cmd(&cmd, false);
+                    run_cmd(&cmd, false, None);
                 } else {
                     println!("copy to homedir {}...", dest_path.display());
                     let cmd = format!(
@@ -72,7 +73,7 @@ pub fn link_to_homedir(backup_flag: bool, link_flag: bool) {
                         file_path.to_string_lossy(),
                         home_dir.to_string_lossy()
                     );
-                    run_cmd(&cmd, false);
+                    run_cmd(&cmd, false, None);
                 }
             } else {
                 println!(" already exist {}...", dest_path.display());

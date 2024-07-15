@@ -31,6 +31,7 @@ fn install_handler(args: Args) {
     run_cmd(
         r#"git config --global include.path "$HOME/.gitconfig_shared""#,
         true,
+        Some(&true),
     );
-    run_cmd(r#"echo -e \e[1;36m Install completed!!!! \e[m"#, true);
+    run_cmd(r#"echo -e \e[1;36m Install completed!!!! \e[m"#, true, None);
 }
