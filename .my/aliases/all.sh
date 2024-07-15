@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # git
 alias gitpush='git add -A && git commit -m "submit" && git push origin main'

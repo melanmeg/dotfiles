@@ -58,25 +58,24 @@
 
 # .bashrc
 !/.bashrc
-!/.bashrc.d
-!/.bashrc.d/**
-!/.bashrc.d/*/
-!/.bashrc.d/*/**
+!/.bash
+!/.bash/**
+!/.bash/*/
+!/.bash/*/**
 
 # .zshrc
-!/.zshrc.d
-!/.zshrc.d/**
-!/.zshrc.d/*/
-!/.zshrc.d/*/**
+!/.zsh
+!/.zsh/**
+!/.zsh/*/
+!/.zsh/*/**
 
-# .shell
-!/.shell/
-!/.shell/**
-!/.shell/*/
-!/.shell/*/**
+# .my
+!/.my/
+!/.my/**
+!/.my/*/
+!/.my/*/**
 
 # other
 !/develop
-!/.my
 !/.colorrc
 !/.zpreztorc

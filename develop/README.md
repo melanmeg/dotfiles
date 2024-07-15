@@ -11,7 +11,7 @@ cargo add clap --features derive
 cargo run -q -- -h
 
 # building exe run
-cargo build
+cargo build --release
 ./target/debug/rust_install -h
 ```
 

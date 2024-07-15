@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# ================================
+#  Default settings
+# ================================
+
 [ -z "$PS1" ] && return
 HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
@@ -59,11 +63,15 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # ================================
-#  Added settings
+#  load settings
 # ================================
 
-# Load bashrc.d
-for file in ~/.bashrc.d/*; do
+for file in ~/.my/aliases*; do
+  # shellcheck disable=SC1090
+  source "$file"
+done
+
+for file in ~/.bash/*; do
   # shellcheck disable=SC1090
   source "$file"
 done
