@@ -25,7 +25,7 @@ rm -f ~/dotfiles/.bin/rust_install && cp -a /target/debug/rust_install ~/dotfile
 ~/dotfiles/.bin/rust_install -h
 
 # zsh setup
-sh ~/dotfiles/.bin/zsh_setup.sh
+sh ~/dotfiles/.bin/scripts/zsh_setup.sh
 docker-compose exec dot zsh
 ```
 
