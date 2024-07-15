@@ -6,8 +6,8 @@
 # Executes commands at the start of an interactive session.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${USER}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${USER}.zsh"
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -45,7 +45,6 @@ zstyle ':chpwd:*' recent-dirs-pushd true
 # Enable zmv
 autoload -Uz zmv
 
-
 # ================================
 #  Other zsh settings
 # ================================
@@ -55,13 +54,6 @@ setopt IGNOREEOF
 
 # silent
 setopt no_beep
-
-# Set ls colors
-if [[ -f ~/.dircolors && $(which dircolors) ]]; then
-  eval $(dircolors -b ~/.dircolors)
-  zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-fi
-
 
 # ================================
 #  Keybinds
@@ -88,7 +80,6 @@ function peco-cdr-selection {
 }
 zle -N peco-cdr-selection
 bindkey \^S peco-cdr-selection
-
 
 # ================================
 #  Aliases
@@ -129,7 +120,6 @@ alias showclock='watch -n 60 date'
 # SHOULD TEST ME
 alias psqltsv='psql -AF $'\''\t'\'''
 
-
 # ================================
 #  Environment variables
 # ================================
@@ -152,3 +142,7 @@ export VISUAL='vim'
 ## -W ... highlight first unread line after forward movement
 ## (-S ... truncate long lines instead of folding)
 export LESS='-iRW'
+
+# .colorrc
+eval $(dircolors ~/.colorrc)
+alias ls='ls --color=auto'

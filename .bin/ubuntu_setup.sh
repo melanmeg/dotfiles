@@ -13,15 +13,8 @@ ubuntu_setup() {
   echo "set bell-style none" | sudo tee -a /etc/inputrc
 }
 
-shell_setup() {
-  echo "shell setup started."
-  sudo apt install -y zsh
-  chsh -s "$(which zsh)"
-}
-
 main() {
   ubuntu_setup
-  shell_setup
   echo -e "\e[1;36m Setup completed!!!! \e[m"
 }
 
