@@ -18,7 +18,7 @@ cargo build --release
 ## Docker test
 
 ```bash
-docker-compose build
+docker-compose build --build-arg CACHEBUST=$(date +%s)
 docker-compose up -d
 docker-compose exec dot bash
 rm -f ~/dotfiles/.bin/rust_install && cp -a /target/debug/rust_install ~/dotfiles/.bin/
@@ -29,8 +29,8 @@ sh ~/dotfiles/.bin/scripts/zsh_setup.sh
 docker-compose exec dot zsh
 ```
 
-## Copy binary
+## Swich binary
 
 ```bash
-cp -a ./target/debug/rust_install ../.bin/
+rm -f ../.bin/rust_install && cp -a ./target/debug/rust_install ../.bin/
 ```

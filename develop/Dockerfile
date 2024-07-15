@@ -6,8 +6,6 @@ RUN apt install -y git vim curl wget
 USER root
 WORKDIR /root
 
-RUN git clone https://github.com/melanmeg/dotfiles.git
-
 # zsh
 RUN apt install -y zsh tmux
 RUN chsh -s "$(which zsh)"
@@ -22,6 +20,10 @@ RUN curl -L -o /peco_linux_amd64.tar.gz https://github.com/peco/peco/releases/do
 RUN tar xvf /peco_linux_amd64.tar.gz -C /
 RUN mv /peco_linux_amd64/peco /usr/local/bin/
 RUN rm -rf /peco_linux_amd64.tar.gz /peco_linux_amd64
+
+# git clone
+ARG CACHEBUST=1
+RUN git clone https://github.com/melanmeg/dotfiles.git
 
 # After comands
 # $ zsh

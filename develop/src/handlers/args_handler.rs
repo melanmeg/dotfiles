@@ -1,14 +1,38 @@
 use crate::handlers::cmd_handler::run_cmd;
+use std::path::PathBuf;
 use std::{env, fs};
+
+struct Context {
+    home_dir: PathBuf,
+    entries: fs::ReadDir,
+}
+
+impl Context {
+    fn new() -> Result<Self, String> {
+        let script_file_path =
+            env::current_exe().map_err(|e| format!("Failed to get exe file: {}", e))?;
+        let script_dir = script_file_path
+            .parent()
+            .ok_or("Failed to get exe directory")?
+            .to_path_buf();
+        let dotdir = script_dir
+            .parent()
+            .ok_or("Failed to get dot directory")?
+            .to_path_buf();
+        let home_dir = dirs::home_dir().ok_or("Failed to get home directory")?;
+        let entries =
+            fs::read_dir(&dotdir).map_err(|e| format!("Failed to read directory: {}", e))?;
+
+        Ok(Context { home_dir, entries })
+    }
+}
 
 pub fn clear_bash_dotfiles(clear_flag: bool) {
     if clear_flag {
         println!("clear dotfiles...");
-        run_cmd(
-            "rm -vrf ~/.*",
-            true,
-            None,
-        );
+        let reg = "~/.*";
+        let cmd = format!("rm -vrf {}", reg);
+        run_cmd(&cmd, true, None);
     }
 }
 
@@ -29,13 +53,17 @@ pub fn create_dotbackup(backup_flag: bool) {
 
 pub fn link_to_homedir(backup_flag: bool, link_flag: bool) {
     println!("install dotfiles to homedir...");
-    let script_file_path = env::current_exe().expect("Failed to get exe file");
-    let script_dir = script_file_path
-        .parent()
-        .expect("Failed to get exe directory");
-    let dotdir = script_dir.parent().expect("Failed to get dot directory");
-    let home_dir = dirs::home_dir().expect("Failed to get home directory");
-    let entries = fs::read_dir(dotdir).expect("Failed to read directory");
+
+    let context = match Context::new() {
+        Ok(context) => context,
+        Err(err) => {
+            eprintln!("Error creating context: {}", err);
+            return;
+        }
+    };
+
+    let entries = context.entries;
+    let home_dir = context.home_dir;
 
     for entry in entries {
         if let Ok(entry) = entry {
