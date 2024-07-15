@@ -7,7 +7,7 @@ use handlers::cmd_handler::run_cmd;
 #[derive(Debug, Parser)]
 #[command(version, about, long_about = None)]
 struct Args {
-    /// Clear bash dotfiles
+    /// Clear dotfiles
     #[arg(short, long)]
     clear: bool,
     /// Backup dotfiles
@@ -25,7 +25,7 @@ fn main() {
 
 fn install_handler(args: Args) {
     create_dotbackup(args.backup);
-    clear_bash_dotfiles(args.clear);
+    clear_dotfiles(args.clear);
     link_to_homedir(args.backup, args.link);
 
     run_cmd(

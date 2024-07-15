@@ -1,6 +1,5 @@
 use crate::handlers::cmd_handler::run_cmd;
 use std::path::PathBuf;
-use std::process::Command;
 use std::{env, fs};
 
 struct Context {
@@ -28,7 +27,7 @@ impl Context {
     }
 }
 
-pub fn clear_bash_dotfiles(clear_flag: bool) {
+pub fn clear_dotfiles(clear_flag: bool) {
     let context = match Context::new() {
         Ok(context) => context,
         Err(err) => {
@@ -37,25 +36,28 @@ pub fn clear_bash_dotfiles(clear_flag: bool) {
         }
     };
     let home_dir = context.home_dir;
+    let entries = match fs::read_dir(&home_dir) {
+        Ok(entries) => entries,
+        Err(e) => {
+            eprintln!("Failed to read directory: {}", e);
+            return;
+        }
+    };
 
     if clear_flag {
         println!("clear dotfiles...");
-        let command = Command::new("rm")
-            .arg("-vrf")
-            .arg(format!("{}/.*", home_dir.to_str().unwrap()))
-            .output();
-        match command {
-            Ok(output) => {
-                if output.status.success() {
-                    let stdout = String::from_utf8_lossy(&output.stdout);
-                    println!("Command executed successfully!\n{}", stdout);
-                } else {
-                    let stderr = String::from_utf8_lossy(&output.stderr);
-                    eprintln!("Command failed: {}", stderr);
+        for entry in entries {
+            if let Ok(entry) = entry {
+                let file_name = entry.file_name();
+                let file_path = entry.path();
+
+                // Skip other than dotfiles
+                if !file_name.to_string_lossy().starts_with('.') {
+                    continue;
                 }
-            }
-            Err(e) => {
-                eprintln!("Failed to execute command: {}", e);
+
+                let cmd = format!("rm -vf {}", file_path.to_string_lossy());
+                run_cmd(&cmd, true, None);
             }
         }
     }
@@ -93,7 +95,7 @@ pub fn link_to_homedir(backup_flag: bool, link_flag: bool) {
             let file_name = entry.file_name();
             let file_path = entry.path();
 
-            // Skip .git directory
+            // Skip .git, .github, other than dotfiles
             if file_name.to_str() == Some(".git")
                 || file_name.to_str() == Some(".github")
                 || !file_name.to_string_lossy().starts_with('.')
