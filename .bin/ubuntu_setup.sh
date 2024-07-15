@@ -1,4 +1,4 @@
-#!/bin/bash -eu
+#!/bin/bash -u
 
 ### Ubuntu22.04 ###
 ubuntu_setup() {
@@ -10,7 +10,7 @@ ubuntu_setup() {
   sudo sed -i.bak -r 's!http://(security|us.archive).ubuntu.com/ubuntu!http://ftp.riken.jp/Linux/ubuntu!' /etc/apt/sources.list
   sudo apt update -y && apt upgrade -y
   # set inputrc
-  echo "set bell-style none" | sudo tee -a /etc/inputrc
+  sudo echo "set bell-style none" | sudo tee -a /etc/inputrc
 }
 
 main() {
