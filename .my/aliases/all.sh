@@ -84,7 +84,7 @@ perfall() {
 }
 
 # grep
-# alias grepclean"grep -v -e '^\s*#' -e '^\s*$'"
+alias grepclean="grep -v -e '^\s*#' -e '^\s*$'"
 
 mypsqlcolumn() {
   docker-compose exec database psql -U pguser database -P 'pager=off' -c "select column_name from information_schema.columns where table_schema = 'public' AND table_name = '$1';"
