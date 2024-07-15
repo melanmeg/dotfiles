@@ -33,4 +33,5 @@ docker-compose exec dot zsh
 
 ```bash
 rm -f ../.bin/rust_install && cp -a ./target/debug/rust_install ../.bin/
+rm -f ../.bin/rust_install && cp -a ./target/release/rust_install ../.bin/
 ```

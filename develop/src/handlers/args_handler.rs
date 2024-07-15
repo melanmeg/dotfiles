@@ -1,5 +1,6 @@
 use crate::handlers::cmd_handler::run_cmd;
 use std::path::PathBuf;
+use std::process::Command;
 use std::{env, fs};
 
 struct Context {
@@ -28,11 +29,35 @@ impl Context {
 }
 
 pub fn clear_bash_dotfiles(clear_flag: bool) {
+    let context = match Context::new() {
+        Ok(context) => context,
+        Err(err) => {
+            eprintln!("Error creating context: {}", err);
+            return;
+        }
+    };
+    let home_dir = context.home_dir;
+
     if clear_flag {
         println!("clear dotfiles...");
-        let reg = "~/.*";
-        let cmd = format!("rm -vrf {}", reg);
-        run_cmd(&cmd, true, None);
+        let command = Command::new("rm")
+            .arg("-vrf")
+            .arg(format!("{}/.*", home_dir.to_str().unwrap()))
+            .output();
+        match command {
+            Ok(output) => {
+                if output.status.success() {
+                    let stdout = String::from_utf8_lossy(&output.stdout);
+                    println!("Command executed successfully!\n{}", stdout);
+                } else {
+                    let stderr = String::from_utf8_lossy(&output.stderr);
+                    eprintln!("Command failed: {}", stderr);
+                }
+            }
+            Err(e) => {
+                eprintln!("Failed to execute command: {}", e);
+            }
+        }
     }
 }
 
@@ -53,7 +78,6 @@ pub fn create_dotbackup(backup_flag: bool) {
 
 pub fn link_to_homedir(backup_flag: bool, link_flag: bool) {
     println!("install dotfiles to homedir...");
-
     let context = match Context::new() {
         Ok(context) => context,
         Err(err) => {
@@ -61,7 +85,6 @@ pub fn link_to_homedir(backup_flag: bool, link_flag: bool) {
             return;
         }
     };
-
     let entries = context.entries;
     let home_dir = context.home_dir;
 
