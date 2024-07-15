@@ -5,8 +5,8 @@
 - Ubuntu
 
 ```bash
-git clone https://github.com/megutamago/dotfiles.git && \
-./dotfiles/.bin/install.sh
+git clone https://github.com/melanmeg/dotfiles.git
+./dotfiles/.bin/rust_install -h
 ```
 
 ```bash
