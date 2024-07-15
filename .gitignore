@@ -22,6 +22,7 @@
 !/.virc
 !/.vimrc
 !/.vim/
+!/.vim/**
 !/.vim/*/
 !/.vim/rc/
 !/.vim/rc/**

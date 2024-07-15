@@ -143,6 +143,19 @@ export VISUAL='vim'
 ## (-S ... truncate long lines instead of folding)
 export LESS='-iRW'
 
+# ================================
+#  Added settings
+# ================================
+
 # .colorrc
-eval $(dircolors ~/.colorrc)
+eval $(dircolors -b ~/.colorrc)
 alias ls='ls --color=auto'
+
+#tmux
+# alias kill='tmux kill-session'
+# if [[ ! "$TERM" =~ "screen" ]]; then
+#   tmux -2 attach || tmux -2 new-session \; source-file ~/.tmux/new-session
+# fi
+
+# tmp
+mkdir -p ~/.cache/shell && touch ~/.cache/shell/chpwd-recent-dirs
