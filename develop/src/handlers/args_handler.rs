@@ -5,7 +5,7 @@ pub fn clear_bash_dotfiles(clear_flag: bool) {
     if clear_flag {
         println!("clear dotfiles...");
         run_cmd(
-            r#"rm -vf $HOME/.bash_history $HOME/.bashrc $HOME/.profile $HOME/.viminfo"#,
+            r#"rm -vr ~/.???*"#,
             true,
             None,
         );

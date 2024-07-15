@@ -29,7 +29,7 @@ fn install_handler(args: Args) {
     link_to_homedir(args.backup, args.link);
 
     run_cmd(
-        r#"git config --global include.path "$HOME/.gitconfig_shared""#,
+        "git config --global include.path ~/.gitconfig_shared",
         true,
         Some(&true),
     );
