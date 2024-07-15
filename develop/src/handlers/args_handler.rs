@@ -46,6 +46,8 @@ pub fn link_to_homedir(backup_flag: bool, link_flag: bool) {
             if file_name.to_str() == Some(".git")
                 || file_name.to_str() == Some(".github")
                 || file_name.to_string_lossy() == "develop"
+                || file_name.to_string_lossy() == "LICENSE"
+                || file_name.to_string_lossy() == "README.md"
             {
                 continue;
             }

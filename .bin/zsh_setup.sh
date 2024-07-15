@@ -2,6 +2,7 @@
 
 shell_setup() {
   echo "shell setup started."
+  apt update
   apt install -y zsh tmux
   chsh -s "$(which zsh)"
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"

@@ -69,6 +69,6 @@
 # Add
 !/.colorrc
 !/.my
-!/.p10k.zsh
+# !/.p10k.zsh
 !/.zpreztorc
 !/develop

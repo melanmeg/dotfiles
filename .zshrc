@@ -22,28 +22,28 @@ fi
 #  Loading zsh function
 # ================================
 
-# Enable compinit.
-autoload -Uz compinit
-compinit
-
-# Enable powerlevel10k.
-autoload -Uz promptinit
-promptinit
-prompt powerlevel10k
-
-# Enable cdr.
-# cf. http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#index-cdr
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ':completion:*:*:cdr:*:*' menu selection
-zstyle ':completion:*' recent-dirs-insert both
-zstyle ':chpwd:*' recent-dirs-max 500
-zstyle ':chpwd:*' recent-dirs-default true
-zstyle ':chpwd:*' recent-dirs-file "${XDG_CACHE_HOME:-$HOME/.cache}/shell/chpwd-recent-dirs"
-zstyle ':chpwd:*' recent-dirs-pushd true
-
-# Enable zmv
-autoload -Uz zmv
+# # Enable compinit.
+# autoload -Uz compinit
+# compinit
+#
+# # Enable powerlevel10k.
+# autoload -Uz promptinit
+# promptinit
+# prompt powerlevel10k
+#
+# # Enable cdr.
+# # cf. http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#index-cdr
+# autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+# add-zsh-hook chpwd chpwd_recent_dirs
+# zstyle ':completion:*:*:cdr:*:*' menu selection
+# zstyle ':completion:*' recent-dirs-insert both
+# zstyle ':chpwd:*' recent-dirs-max 500
+# zstyle ':chpwd:*' recent-dirs-default true
+# zstyle ':chpwd:*' recent-dirs-file "${XDG_CACHE_HOME:-$HOME/.cache}/shell/chpwd-recent-dirs"
+# zstyle ':chpwd:*' recent-dirs-pushd true
+#
+# # Enable zmv
+# autoload -Uz zmv
 
 # ================================
 #  Other zsh settings
@@ -158,4 +158,4 @@ alias ls='ls --color=auto'
 # fi
 
 # tmp
-mkdir -p ~/.cache/shell && touch ~/.cache/shell/chpwd-recent-dirs
+# mkdir -p ~/.cache/shell && touch ~/.cache/shell/chpwd-recent-dirs
