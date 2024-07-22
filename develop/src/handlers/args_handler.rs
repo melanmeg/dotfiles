@@ -1,5 +1,6 @@
 use crate::handlers::cmd_handler::run_cmd;
 use std::path::PathBuf;
+use std::process::Command;
 use std::{env, fs};
 
 struct Context {
@@ -56,8 +57,15 @@ pub fn clear_dotfiles(clear_flag: bool) {
                     continue;
                 }
                 println!("delete {}...", file_path.display());
-                let cmd = format!("rm -rf {}", file_path.to_string_lossy());
-                run_cmd(&cmd, false, None);
+                // Run the `rm -rf` command safely
+                let status = Command::new("rm")
+                    .arg("-rf")
+                    .arg(&file_path)
+                    .status()
+                    .expect("Failed to execute `rm` command");
+                if !status.success() {
+                    eprintln!("Failed to delete {}: {:?}", file_path.display(), status);
+                }
             }
         }
         println!("");
@@ -67,14 +75,14 @@ pub fn clear_dotfiles(clear_flag: bool) {
 pub fn create_dotbackup(backup_flag: bool) {
     if backup_flag {
         println!("backup dotfiles...");
-        let dotbackup_dir = format!("{}/.dotbackup", std::env::var("HOME").unwrap_or_default());
-        if !std::path::Path::new(&dotbackup_dir).exists() {
-            println!("{} not found. Auto Make it.", dotbackup_dir);
-            if let Err(err) = fs::create_dir(&dotbackup_dir) {
+        let backup_path = format!("{}/.dotbackup", std::env::var("HOME").unwrap_or_default());
+        if !std::path::Path::new(&backup_path).exists() {
+            println!("{} not found. Auto Make it.", backup_path);
+            if let Err(err) = fs::create_dir(&backup_path) {
                 eprintln!("Failed to create directory: {}", err);
             }
         } else {
-            println!("{} already exists.", dotbackup_dir);
+            println!("{} already exists.", backup_path);
         }
         println!("");
     }
@@ -105,9 +113,19 @@ pub fn link_to_homedir(backup_flag: bool, link_flag: bool) {
                 continue;
             }
 
+            // Delete files if they already exist at the backup destination
+            let backup_path = format!("{}/.dotbackup", std::env::var("HOME").unwrap_or_default());
+            if !std::path::Path::new(&backup_path).exists() {
+                println!(
+                    "Backup file already exists at {}. Removing it...",
+                    backup_path
+                );
+                fs::remove_file(&backup_path).expect("Failed to remove existing backup file");
+            }
+
             let dest_path = home_dir.join(&file_name);
             if backup_flag && dest_path.exists() {
-                println!("dotbackup {}...", dest_path.display());
+                println!("Backing up {}...", dest_path.display());
                 fs::rename(&dest_path, home_dir.join(".dotbackup").join(&file_name))
                     .expect("Failed to move file to backup");
             }
@@ -124,7 +142,7 @@ pub fn link_to_homedir(backup_flag: bool, link_flag: bool) {
                 } else {
                     println!("copy to homedir {}...", dest_path.display());
                     let cmd = format!(
-                        "cp -va {} {}",
+                        "cp -vaf {} {}",
                         file_path.to_string_lossy(),
                         home_dir.to_string_lossy()
                     );

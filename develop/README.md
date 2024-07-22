@@ -9,7 +9,9 @@ cargo add clap --features derive
 
 # simple run
 cargo run -q -- -h
+```
 
+```bash
 # building exe run
 cargo build
 ./target/debug/dotfiles -h
@@ -26,12 +28,17 @@ cargo build --release --target=x86_64-unknown-linux-musl
 ## Docker test
 
 ```bash
-docker-compose build --build-arg CACHEBUST=$(date +%s)
-docker-compose up -d
-docker-compose exec dot bash
-rm -f ~/dotfiles/.bin/dotfiles && cp -a /target/debug/dotfiles ~/dotfiles/.bin/
-~/dotfiles/.bin/dotfiles -h
+cargo build
 
+docker-compose build --build-arg CACHEBUST=$(date +%s) \
+docker-compose up -d \
+docker-compose exec dot bash
+
+rm -f ~/dotfiles/.bin/dotfiles && cp -a /target/debug/dotfiles ~/dotfiles/.bin/ \
+~/dotfiles/.bin/dotfiles -h
+```
+
+```bash
 # zsh setup
 sh ~/dotfiles/.bin/scripts/zsh_setup.sh
 docker-compose exec dot zsh
