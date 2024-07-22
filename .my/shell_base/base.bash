@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eu
 
 # ================================
 #  Added settings
@@ -14,3 +15,6 @@
 # shellcheck disable=SC2046
 eval $(dircolors -b ~/.colorrc)
 alias ls='ls --color=auto'
+
+# set mise
+eval "$(~/.local/bin/mise activate bash)"

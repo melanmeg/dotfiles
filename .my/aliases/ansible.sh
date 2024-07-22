@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 
 # ansible
 alias play='ansible-playbook -i hosts site.yml'

@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 
 alias sudo='sudo '
 alias cp='cp -i'

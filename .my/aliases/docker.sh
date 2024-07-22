@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 
 # docker
 alias d='docker'

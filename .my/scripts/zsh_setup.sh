@@ -1,4 +1,5 @@
-#!/bin/bash -u
+#!/bin/bash
+set -eu
 
 shell_setup() {
   echo "shell setup started."

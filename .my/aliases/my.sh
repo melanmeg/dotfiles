@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 
 # git
 # shellcheck disable=SC2139

@@ -1,7 +1,5 @@
 #!/bin/sh
-
-# set mise
-eval "$(/home/melanmeg/.local/bin/mise activate bash)"
+set -eu
 
 # alias du='dust'
 # alias cat='bast'

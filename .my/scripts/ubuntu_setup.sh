@@ -1,4 +1,5 @@
-#!/bin/bash -u
+#!/bin/bash
+set -eu
 
 ### Ubuntu22.04 ###
 ubuntu_setup() {

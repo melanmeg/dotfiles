@@ -1,4 +1,5 @@
 #!/bin/zsh
+set -eu
 
 # ================================
 #  prezto settings
@@ -45,3 +46,6 @@ alias ls='ls --color=auto'
 autoload -Uz promptinit
 promptinit
 prompt skwp
+
+# set mise
+eval "$(~/.local/bin/mise activate bash)"
