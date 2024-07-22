@@ -12,7 +12,7 @@ cargo run -q -- -h
 
 # building exe run
 cargo build
-./target/debug/rust_install -h
+./target/debug/dotfiles -h
 ```
 
 - Release
@@ -29,8 +29,8 @@ cargo build --release --target=x86_64-unknown-linux-musl
 docker-compose build --build-arg CACHEBUST=$(date +%s)
 docker-compose up -d
 docker-compose exec dot bash
-rm -f ~/dotfiles/.bin/rust_install && cp -a /target/debug/rust_install ~/dotfiles/.bin/
-~/dotfiles/.bin/rust_install -h
+rm -f ~/dotfiles/.bin/dotfiles && cp -a /target/debug/dotfiles ~/dotfiles/.bin/
+~/dotfiles/.bin/dotfiles -h
 
 # zsh setup
 sh ~/dotfiles/.bin/scripts/zsh_setup.sh
@@ -40,5 +40,5 @@ docker-compose exec dot zsh
 ## Swich binary
 
 ```bash
-rm -f ../.bin/rust_install && cp -a ./target/release/rust_install ../.bin/
+rm -f ../.bin/dotfiles && cp -a ./target/x86_64-unknown-linux-musl/release/dotfiles ../.bin/
 ```

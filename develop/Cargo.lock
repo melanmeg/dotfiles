@@ -151,6 +151,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "dotfiles"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "dirs 5.0.1",
+ "shellexpand",
+ "termcolor",
+]
+
+[[package]]
 name = "getrandom"
 version = "0.2.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -222,16 +232,6 @@ dependencies = [
  "getrandom",
  "libredox",
  "thiserror",
-]
-
-[[package]]
-name = "rust_install"
-version = "0.1.0"
-dependencies = [
- "clap",
- "dirs 5.0.1",
- "shellexpand",
- "termcolor",
 ]
 
 [[package]]

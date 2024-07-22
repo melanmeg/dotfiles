@@ -1,8 +1,8 @@
 [package]
-name = "rust_install"
+name = "dotfiles"
 version = "0.1.0"
 edition = "2021"
-description  = "Rust Dotfiles."
+description  = "Rust CLI for Dotfiles."
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

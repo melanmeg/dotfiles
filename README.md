@@ -6,7 +6,7 @@
 
 ```bash
 git clone https://github.com/melanmeg/dotfiles.git
-./dotfiles/.bin/rust_install -b
+./dotfiles/.bin/dotfiles -b
 sh ~/dotfiles/.bin/scripts/zsh_setup.sh
 ```
 
