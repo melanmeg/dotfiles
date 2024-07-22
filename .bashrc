@@ -90,9 +90,3 @@ for file in ~/.my/aliases/*; do
   # shellcheck disable=SC1090
   source "$file"
 done
-
-# shellcheck disable=SC2043
-for file in ~/.my/mise.sh; do
-  # shellcheck disable=SC1090
-  source "$file"
-done
