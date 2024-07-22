@@ -37,3 +37,10 @@ for attempt in {1..3}; do
         sleep 5
     fi
 done
+
+# create ansible Group
+groupadd -g 9010 ansible
+
+# Add ansible Group
+sudo usermod -aG ansible "$USER"
+newgrp ansible
