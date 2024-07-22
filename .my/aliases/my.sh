@@ -16,7 +16,7 @@ alias keygen='ssh-keygen -t ed25519 -C "" -f ./keygen -N ""'
 alias basessh='ssh root@192.168.11.11'
 
 # grep
-alias grepclean="grep -v -e '^\s*#' -e '^\s*$'"
+alias grepclean="grep -v -e '^\s*#' -e '^\s*$'" # grepclean [file]
 
 # python
 alias pyformat='pysen run format && pysen run lint'
