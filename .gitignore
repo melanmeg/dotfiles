@@ -75,6 +75,10 @@
 !/.my/*/
 !/.my/*/**
 
+# vscode
+!/.vscode
+!/.vscode/**
+
 # other
 !/develop
 !/.colorrc

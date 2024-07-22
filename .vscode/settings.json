@@ -1,0 +1,134 @@
+{
+  // ================
+  // general settings
+  // ================
+  "editor.renderWhitespace": "boundary",
+  "editor.minimap.enabled": false,
+  "extensions.ignoreRecommendations": true,
+  "window.zoomLevel": -0.7,
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Monokai Dimmed",
+  "workbench.editor.tabActionLocation": "left",
+  "workbench.editor.languageDetection": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "files.associations": {
+    "*.conf": "nft"
+  },
+
+  // ===============
+  // common settings
+  // ===============
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.insertSpaces": true,
+  "editor.stickyTabStops": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
+  "editor.autoIndent": "abandoned",
+  "extensions.autoUpdate": false,
+  "telemetry.telemetryLevel": "off",
+  "prettier.tabWidth": 2,
+  "vs-kubernetes": {
+    "vscode-kubernetes.helm-path-linux": "/root/.local/state/vs-kubernetes/tools/helm/linux-amd64/helm",
+    "vscode-kubernetes.kubectl-path-linux": "/root/.local/state/vs-kubernetes/tools/kubectl/kubectl",
+    "vscode-kubernetes.minikube-path-linux": "/root/.local/state/vs-kubernetes/tools/minikube/linux-amd64/minikube"
+  },
+  "autopep8.args": ["--indent-size=2"],
+  "shellformat.effectLanguages": [
+    "shellscript",
+    "dockerfile",
+    "dotenv",
+    "hosts",
+    "jvmoptions",
+    "ignore",
+    "gitignore",
+    "properties",
+    "spring-boot-properties",
+    "azcli",
+    "bats"
+  ],
+  "shellformat.path": "/usr/bin/shfmt",
+  "shellcheck.enable": true,
+  "shellcheck.enableQuickFix": true,
+
+  // ============
+  // SSH settings
+  // ============
+  "remote.SSH.enableRemoteCommand": true,
+  "remote.SSH.remotePlatform": {
+    "192.168.11.21": "linux",
+    "192.168.11.52": "linux",
+    "private-isu1": "linux",
+    "ope1": "linux",
+    "isu1": "linux",
+    "isu2": "linux",
+    "isu3": "linux",
+    "test-isucon13": "linux",
+    "test-isucon13-bm": "linux",
+    "openvpn-server": "linux",
+    "isu13": "linux",
+    "isu-bm": "linux",
+    "base1": "linux",
+    "hoge1": "linux"
+  },
+
+  // ==================
+  // launguage settings
+  // ==================
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+  "[go]": {},
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "[typescript]": {},
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[ssh_config]": {},
+  "[ansible-jinja]": {},
+  "[ansible]": {},
+  "[nft]": {},
+  "[NGINX]": {
+    "editor.formatOnType": false
+  },
+  "[jsonc]": {},
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[hosts]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "files.trimTrailingWhitespace": true,
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "git.confirmSync": false,
+  "git.autofetch": true
+}
