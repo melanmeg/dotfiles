@@ -79,3 +79,5 @@
 !/develop
 !/.colorrc
 !/.zpreztorc
+!/.mise.toml
+!/.env.sample

@@ -1,0 +1,59 @@
+[env]
+NODE_ENV = 'development'
+NPM_CONFIG_PREFIX = "~/.npm-global"
+
+[tools]
+ansible-base = 'latest'
+aria2        = 'latest'
+awscli       = 'latest'
+azure-cli    = 'latest'
+bat          = 'latest'
+bottom       = 'latest'
+bun          = 'latest'
+delta        = 'latest'
+deno         = 'latest'
+duf          = 'latest'
+dust         = 'latest'
+exa          = 'latest'
+fd           = 'latest'
+# ffmpeg       = 'latest' # dependencies nasm yasm gcc
+gcloud       = 'latest'
+go           = ['1.22.5']
+hyperfine    = 'latest'
+java         = ['17.0.2']
+jq           = 'latest'
+node         = ['20.15.1'] # 'lts'
+# perl         = ['5.40.0']
+poetry       = 'latest'
+python       = ['3.10.11', '3.11.9', '3.12.4']
+ripgrep      = 'latest'
+terraform    = ['1.9.2']
+trivy        = 'latest'
+vhs          = 'latest'
+zoxide       = 'latest'
+
+[plugins]
+python = 'https://github.com/asdf-community/asdf-python'
+
+[settings]
+legacy_version_file = true
+legacy_version_file_disable_tools = ['python']
+always_keep_download = false
+always_keep_install = false
+plugin_autoupdate_last_check_duration = '1 week'
+trusted_config_paths = ['~']
+verbose = false
+asdf_compat = false
+http_timeout = 30
+jobs = 4
+raw = false
+yes = false
+not_found_auto_install = true
+task_output = "prefix"
+paranoid = false
+# shorthands_file = '~/.config/mise/shorthands.toml'
+disable_default_shorthands = false
+# disable_tools = ['']
+env_file = '.env'
+experimental = true
+status = { missing_tools = "if_other_versions_installed", show_env = false, show_tools = false }
