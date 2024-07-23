@@ -1,7 +1,6 @@
 use crate::handlers::cmd_handler::run_cmd;
 use std::path::Path;
 use std::path::PathBuf;
-use std::process::Command;
 use std::{env, fs};
 
 pub struct Context {
@@ -24,44 +23,6 @@ pub fn context_info() -> Result<Context, Box<dyn std::error::Error>> {
     let entries = fs::read_dir(&dotdir).map_err(|e| format!("Failed to read directory: {}", e))?;
 
     Ok(Context { home_dir, entries })
-}
-
-pub fn clear_dotfiles(clear_flag: bool) {
-    let context = context_info().unwrap();
-    let home_dir = context.home_dir;
-    let entries = match fs::read_dir(&home_dir) {
-        Ok(entries) => entries,
-        Err(e) => {
-            eprintln!("Failed to read directory: {}", e);
-            return;
-        }
-    };
-
-    if clear_flag {
-        println!("clear dotfiles...");
-        for entry in entries {
-            if let Ok(entry) = entry {
-                let file_name = entry.file_name();
-                let file_path = entry.path();
-
-                // Skip other than dotfiles
-                if !file_name.to_string_lossy().starts_with('.') {
-                    continue;
-                }
-                println!("delete {}...", file_path.display());
-                // Run the `rm -rf` command safely
-                let status = Command::new("rm")
-                    .arg("-rf")
-                    .arg(&file_path)
-                    .status()
-                    .expect("Failed to execute `rm` command");
-                if !status.success() {
-                    eprintln!("Failed to delete {}: {:?}", file_path.display(), status);
-                }
-            }
-        }
-        println!("");
-    }
 }
 
 pub fn create_dotbackup(backup_flag: bool) {
