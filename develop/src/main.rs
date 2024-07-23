@@ -24,7 +24,6 @@ fn main() {
 }
 
 fn install_handler(args: Args) {
-    create_dotbackup(args.backup);
     clear_dotfiles(args.clear);
     link_to_homedir(args.backup, args.link);
     println!("");

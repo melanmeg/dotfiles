@@ -4,6 +4,7 @@
 
 ```bash
 # pre-setting
+sudo apt install -y build-essential
 cargo new develop && cd develop
 cargo add clap --features derive
 
