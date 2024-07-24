@@ -1,7 +1,12 @@
 #!/bin/bash
+set -euo pipefail
 
 # Path to the extensions.json file
+# shellcheck disable=SC2088
 EXTENSIONS_FILE="~/.vscode/extensions.json"
+
+# Pre Install ShellCheck
+sudo snap install shfmt
 
 # Check if extensions.json exists
 if [ ! -f "$EXTENSIONS_FILE" ]; then

@@ -35,9 +35,9 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     ### Termial Prompt Custom Color Settings    ↓↓↓↓↓↓                           ↓↓↓↓↓↓
-    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     PS1='${debian_chroot:+($debian_chroot)}\[\033[38;5;165m\]\u@\h\[\033[00m\]:\[\033[38;5;208m\]\w\[\033[00m\]\$ '
     PS2='\[\033[01;34m\]> \[\033[00m\]'
+    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ ' # default
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi

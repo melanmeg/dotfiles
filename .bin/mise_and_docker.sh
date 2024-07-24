@@ -5,7 +5,7 @@ set -eu
 curl -fsSL https://get.docker.com | sh
 
 # Install dokcer compose
-curl -L https://github.com/docker/compose/releases/download/v2.29.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+curl -L https://github.com/docker/compose/releases/download/v2.29.0/docker-compose-$(uname -s)-$(uname -m) >/usr/local/bin/docker-compose
 
 # Add docker Group
 sudo usermod -aG docker "$USER"
@@ -22,20 +22,20 @@ curl https://mise.run | sh
 
 # Setting mise
 # shellcheck disable=SC2016
-echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc
+echo 'eval "$(~/.local/bin/mise activate bash)"' >>~/.bashrc
 
-function mise_cmd () {
+function mise_cmd() {
   mise i -y
   mise use -gy azure-cli@latest
 }
 for attempt in {1..3}; do
-    if mise_cmd; then
-        echo "mise Command succeeded."
-        exit 0
-    else
-        echo "Attempt $attempt failed. Retrying..."
-        sleep 5
-    fi
+  if mise_cmd; then
+    echo "mise Command succeeded."
+    exit 0
+  else
+    echo "Attempt $attempt failed. Retrying..."
+    sleep 5
+  fi
 done
 
 # create ansible Group
@@ -44,3 +44,6 @@ groupadd -g 9010 ansible
 # Add ansible Group
 sudo usermod -aG ansible "$USER"
 newgrp ansible
+
+# Install shellcheck. ref: install-recommended-vscode-extensions
+# sudo snap install shfmt
