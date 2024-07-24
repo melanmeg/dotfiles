@@ -24,3 +24,12 @@ set -eu
 # ngroc
 # figlet # ASCIIアート
 # lolcat # テキストを虹色に
+
+# farm ?
+
+# gitea
+# pocketbase
+# go-zero
+# charming (rust)
+
+# パッケージマネージャーの整理(ドキュメントとかに？)
