@@ -59,6 +59,7 @@
   "shellformat.path": "/snap/bin/shfmt",
   "shellcheck.enable": true,
   "shellcheck.enableQuickFix": true,
+  "shellcheck.customArgs": ["-x"],
 
   // ============
   // SSH settings
