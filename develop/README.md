@@ -12,12 +12,6 @@ cargo add clap --features derive
 cargo run -q -- -h
 ```
 
-```bash
-# building exe run
-cargo build
-./target/debug/dotfiles -h
-```
-
 - Release
 
 ```bash

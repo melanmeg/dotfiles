@@ -41,7 +41,7 @@ pub fn create_dotbackup(backup_flag: bool) {
     }
 }
 
-pub fn link_to_homedir(backup_flag: bool, link_flag: bool) {
+pub fn link_to_homedir(force_flag: bool, backup_flag: bool, link_flag: bool) {
     println!("install dotfiles to homedir...\n");
     let context = context_info().unwrap();
     let home_dir: PathBuf = context.home_dir;
@@ -49,7 +49,7 @@ pub fn link_to_homedir(backup_flag: bool, link_flag: bool) {
     delete_files_if_exist(backup_flag);
     create_dotbackup(backup_flag);
     backing_up(backup_flag, &home_dir);
-    wrap_setup_dotfiles(backup_flag, link_flag, &home_dir);
+    wrap_setup_dotfiles(force_flag, backup_flag, link_flag, &home_dir);
 }
 
 pub fn is_symlink(symlink_path: &Path) -> bool {
@@ -60,7 +60,7 @@ pub fn is_symlink(symlink_path: &Path) -> bool {
 }
 
 pub fn setup_dotfiles(
-    // Setup dotfiles
+    force_flag: bool,
     link_flag: bool,
     home_dir: PathBuf,
     file_name: &str,
@@ -68,7 +68,8 @@ pub fn setup_dotfiles(
     dest_path: PathBuf,
     result_is_symlink: bool,
 ) {
-    if !dest_path.exists() && !result_is_symlink {
+    // Setup dotfiles
+    if (!dest_path.exists() || force_flag) && !result_is_symlink {
         if link_flag {
             println!("link to homedir {}...", dest_path.display());
             let cmd = format!("ln -vsnf {} {}", file_name, home_dir.to_string_lossy());
@@ -130,8 +131,18 @@ pub fn backing_up(backup_flag: bool, home_dir: &PathBuf) {
     }
 }
 
-pub fn wrap_setup_dotfiles(backup_flag: bool, link_flag: bool, home_dir: &PathBuf) {
+pub fn wrap_setup_dotfiles(
+    force_flag: bool,
+    backup_flag: bool,
+    link_flag: bool,
+    home_dir: &PathBuf,
+) {
     let context = context_info().unwrap();
+
+    if link_flag && force_flag {
+        println!("ln command cannot be forced to overwrite.",);
+    }
+
     for entry in context.entries {
         if let Ok(entry) = entry {
             let file_name: String = entry.file_name().to_string_lossy().to_string();
@@ -154,14 +165,17 @@ pub fn wrap_setup_dotfiles(backup_flag: bool, link_flag: bool, home_dir: &PathBu
             }
 
             let file_name = entry.file_name().to_string_lossy().to_string();
-            setup_dotfiles(
-                link_flag,
-                home_dir.clone(),
-                file_name.as_str(),
-                file_path.clone(),
-                dest_path.clone(),
-                result_is_symlink,
-            );
+            if !link_flag || !force_flag {
+                setup_dotfiles(
+                    force_flag,
+                    link_flag,
+                    home_dir.clone(),
+                    file_name.as_str(),
+                    file_path.clone(),
+                    dest_path.clone(),
+                    result_is_symlink,
+                );
+            }
         }
     }
 }

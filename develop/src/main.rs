@@ -7,6 +7,9 @@ use handlers::cmd_handler::run_cmd;
 #[derive(Debug, Parser)]
 #[command(version, about, long_about = None)]
 struct Args {
+    /// Force overwrite
+    #[arg(short, long)]
+    force: bool,
     /// Backup dotfiles
     #[arg(short, long)]
     backup: bool,
@@ -21,7 +24,7 @@ fn main() {
 }
 
 fn install_handler(args: Args) {
-    link_to_homedir(args.backup, args.link);
+    link_to_homedir(args.force, args.backup, args.link);
     println!("");
     run_cmd(
         "git config --global include.path ~/.gitconfig_shared",
