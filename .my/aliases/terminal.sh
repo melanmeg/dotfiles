@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -eu
-
 # check terminal
 case "$TERM" in
 xterm* | rxvt*)
@@ -9,19 +7,6 @@ xterm* | rxvt*)
   ;;
 *) ;;
 esac
-
-# lesspipe
-# [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-# if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-#   debian_chroot=$(cat /etc/debian_chroot)
-# fi
-
-# tput color_prompt
-# if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-#   color_prompt=yes
-# else
-#   color_prompt=
-# fi
 
 # terminal coler by $TERM
 case "$TERM" in
@@ -55,3 +40,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# terminal color
+# shellcheck disable=SC2046
+eval $(dircolors -b ~/.colorrc)
+alias ls='ls --color=auto'

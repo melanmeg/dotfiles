@@ -21,3 +21,9 @@ alias grepclean="grep -v -e '^\s*#' -e '^\s*$'" # grepclean [file]
 
 # python
 alias pyformat='pysen run format && pysen run lint'
+
+# tmux
+# alias kill='tmux kill-session'
+# if [[ ! "$TERM" =~ "screen" ]]; then
+#   tmux -2 attach || tmux -2 new-session \; source-file ~/.tmux/new-session
+# fi

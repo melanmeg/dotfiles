@@ -12,7 +12,7 @@ sudo usermod -aG docker "$USER"
 newgrp docker
 
 # dependency mise
-sudo apt install -y unzip bzip2 # yasm gcc
+sudo apt install -y unzip bzip2 # nasm yasm gcc
 
 # Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y

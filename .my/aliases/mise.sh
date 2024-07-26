@@ -1,6 +1,8 @@
 #!/bin/sh
 set -eu
 
+eval "$(~/.local/bin/mise activate bash)"
+
 # alias du='dust'
 # alias cat='bast'
 # alias ls='exa'
