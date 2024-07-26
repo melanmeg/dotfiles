@@ -12,7 +12,7 @@ sudo usermod -aG docker "$USER"
 newgrp docker
 
 # dependency mise
-sudo apt install -y unzip bzip2 # nasm yasm gcc
+sudo apt install -y unzip bzip2 # yasm gcc
 
 # Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -44,6 +44,3 @@ groupadd -g 9010 ansible
 # Add ansible Group
 sudo usermod -aG ansible "$USER"
 newgrp ansible
-
-# Install shellcheck. ref: install-recommended-vscode-extensions
-# sudo snap install shfmt
