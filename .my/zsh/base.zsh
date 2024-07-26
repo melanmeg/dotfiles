@@ -1,5 +1,4 @@
 #!/bin/zsh
-set -eu
 
 # ================================
 #  prezto settings
