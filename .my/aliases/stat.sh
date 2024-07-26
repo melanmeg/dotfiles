@@ -1,5 +1,4 @@
 #!/bin/sh
-set -eu
 
 # iostat
 alias myio="iostat -cdmhNtz 1"

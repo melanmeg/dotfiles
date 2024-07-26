@@ -1,5 +1,4 @@
 #!/bin/sh
-set -eu
 
 # ubuntu22.04 default settings
 if [ -x /usr/bin/dircolors ]; then

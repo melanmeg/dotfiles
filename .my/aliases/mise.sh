@@ -1,5 +1,4 @@
 #!/bin/sh
-set -eu
 
 eval "$(~/.local/bin/mise activate bash)"
 

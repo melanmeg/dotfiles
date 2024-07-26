@@ -1,5 +1,4 @@
 #!/bin/sh
-set -eu
 
 # terraform
 alias tf='terraform'

@@ -26,8 +26,6 @@ fi
 #  load settings
 # ================================
 
-source "$HOME/.my/shell_base/base.bash"
-
 for file in ~/.my/aliases/*; do
   # shellcheck disable=SC1090
   source "$file"

@@ -1,5 +1,4 @@
 #!/bin/sh
-set -eu
 
 # k6
 alias format='npm run format --prefix ./scenarios/'
