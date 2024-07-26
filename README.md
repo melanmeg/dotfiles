@@ -15,3 +15,16 @@ git config --global user.name "Your Name"
 git config --global credential.helper store
 ```
 
+```bash
+$ ./dotfiles -h
+Rust CLI for Dotfiles.
+
+Usage: dotfiles [OPTIONS]
+
+Options:
+  -f, --force    Force overwrite
+  -b, --backup   Backup dotfiles
+  -l, --link     Link to homedir
+  -h, --help     Print help
+  -V, --version  Print version
+```
