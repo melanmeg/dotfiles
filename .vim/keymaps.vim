@@ -14,8 +14,8 @@ noremap <S-l> $
 noremap <S-k> {
 noremap <S-j> }
 noremap m %
-noremap : ;
-noremap ; :
+"noremap : ;
+"noremap ; :
 noremap <C-c> <ESC>
 nnoremap s <Nop>
 nnoremap ZZ <Nop>
@@ -38,8 +38,6 @@ nnoremap s< <C-w><
 nnoremap tt :<C-u>tabnew<CR>
 nnoremap tn gt
 nnoremap tp gT
-nnoremap <silent>Gtoggle :GitGutterToggle<CR>
-nnoremap <silent>Ghighlight :GitGutterLineHighlightsToggle<CR>
 nnoremap <silent><S-CR> o<ESC>
 nnoremap <silent>j gj
 nnoremap <silent>k gk

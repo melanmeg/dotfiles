@@ -1,7 +1,7 @@
 "----------------------------------------
 "      Set
 "----------------------------------------
-set number
+"set number
 set encoding=utf-8
 scriptencoding utf-8
 set autoindent
@@ -30,6 +30,5 @@ set completeopt=menuone
 for k in split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_",'\zs')
   exec "imap <expr> " . k . " pumvisible() ? '" . k . "' : '" . k . "\<C-X>\<C-P>\<C-N>'"
 endfor
-
-set list
-set listchars=tab:»',trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+"set list
+"set listchars=tab:»',trail:-,eol:↲,extends:»,precedes:«,nbsp:%'
