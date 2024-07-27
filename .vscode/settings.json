@@ -7,7 +7,7 @@
   "extensions.ignoreRecommendations": true,
   "window.zoomLevel": -0.7,
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Monokai Dimmed",
+  "workbench.colorTheme": "Monokai",
   "workbench.editor.tabActionLocation": "left",
   "workbench.editor.languageDetection": false,
   "workbench.iconTheme": "material-icon-theme",
