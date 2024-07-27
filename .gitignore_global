@@ -1,0 +1,8 @@
+*~
+.vscode
+.DS_Store
+.env
+.venv
+.terraform
+node_modules
+volumes

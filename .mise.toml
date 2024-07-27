@@ -4,7 +4,6 @@ NPM_CONFIG_PREFIX = "~/.npm-global"
 
 [tools]
 ansible-base = 'latest'
-aria2        = 'latest'
 awscli       = 'latest'
 azure-cli    = 'latest'
 bat          = 'latest'
