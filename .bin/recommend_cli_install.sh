@@ -4,9 +4,10 @@ set -eu
 # setup mypoetry
 # - thefuck
 # - glances
-poetry install --directory "$HOME/.my/poetry"
-VENV_PATH=$(poetry env info --path --directory "$HOME/.my/poetry")
-export PATH=$PATH:$VENV_PATH/bin
+poetry install --directory "$HOME/.my/poetry" --no-root
+
+# poetry debug (delete)
+# rm -rf "$(poetry env list --full-path --directory "$HOME/.my/poetry" | grep -o '/.*')"
 
 # - aria2
 sudo apt install -y aria2

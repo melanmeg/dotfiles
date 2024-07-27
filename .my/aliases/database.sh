@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # database
 alias mypsql="docker-compose exec database psql -U pguser database -P 'pager=off'"

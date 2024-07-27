@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # iostat
 alias myio="iostat -cdmhNtz 1"

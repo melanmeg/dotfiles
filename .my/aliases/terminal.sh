@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # check terminal
 case "$TERM" in

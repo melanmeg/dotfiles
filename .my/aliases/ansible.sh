@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # ansible
 alias play='ansible-playbook --key-file ~/.ssh/main -i hosts site.yml'
