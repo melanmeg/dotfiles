@@ -21,6 +21,11 @@ poetry install --directory "$HOME/.my/poetry" --no-root
 # poetry debug (delete)
 # rm -rf "$(poetry env list --full-path --directory "$HOME/.my/poetry" | grep -o '/.*')"
 
+# Setup my nodejs
+# - aicommits > コミットメッセージを自動生成
+# .envにOPENAI_KEY=<your token>を設定
+npm i --prefix "$HOME/.my/nodejs"
+
 # - aria2
 sudo apt install -y aria2
 
@@ -38,11 +43,6 @@ sudo apt install -y figlet # figlet Hello, World!
 
 # - actionlint > GitHub Actions の Workflow ファイルの静的検査
 install_package actionlint https://github.com/rhysd/actionlint/releases/download/v1.7.1/actionlint_1.7.1_linux_amd64.tar.gz
-
-# - aicommits > コミットメッセージを自動生成
-# ???
-# npm install -g aicommits
-# aicommits config set OPENAI_KEY=<your token>
 
 # - cLive > ターミナル操作を自動化
 install_package clive https://github.com/koki-develop/clive/releases/download/v0.12.9/clive_Linux_x86_64.tar.gz
@@ -69,6 +69,7 @@ install_package clive https://github.com/pocketbase/pocketbase/releases/download
 # cargo add charming
 
 # - farm
+# npx create farm@latest
 
 # - go-zero
 # go get -u github.com/zeromicro/go-zero
