@@ -14,41 +14,49 @@ sudo apt install -y aria2
 
 # - bandwhich > ネットワーク帯域幅の使用状況をリアルタイムで監視
 PACKAGE_NAME=bandwhich
-aria2c -d /tmp -x 16 -s 16 -k 1M -o $PACKAGE_NAME.tar.gz https://github.com/imsnif/bandwhich/releases/download/v0.22.2/bandwhich-v0.22.2-x86_64-unknown-linux-musl.tar.gz \
-  tar -xzf /tmp/$PACKAGE_NAME.tar.gz -C /tmp \
-  sudo cp -a /tmp/$PACKAGE_NAME /usr/local/bin \
-  rm -rf /tmp/$PACKAGE_NAME* \
-  sudo chown "$USER:$USER" /usr/local/bin/$PACKAGE_NAME \
-  sudo chmod +x /usr/local/bin/$PACKAGE_NAME
+aria2c -d /tmp -x 16 -s 16 -k 1M -o $PACKAGE_NAME.tar.gz https://github.com/imsnif/bandwhich/releases/download/v0.22.2/bandwhich-v0.22.2-x86_64-unknown-linux-musl.tar.gz
+tar -xzf /tmp/$PACKAGE_NAME.tar.gz -C /tmp
+sudo cp -a /tmp/$PACKAGE_NAME /usr/local/bin
+rm -rf /tmp/$PACKAGE_NAME*
+sudo chown "$USER:$USER" /usr/local/bin/$PACKAGE_NAME
+sudo chmod +x /usr/local/bin/$PACKAGE_NAME
 
 # - gping
 sudo apt install -y gping
 
 # - lagydocker
 PACKAGE_NAME=lazydocker
-aria2c -d /tmp -x 16 -s 16 -k 1M -o $PACKAGE_NAME.tar.gz https://github.com/jesseduffield/lazydocker/releases/download/v0.23.3/lazydocker_0.23.3_Linux_x86_64.tar.gz \
-  tar -xzf /tmp/$PACKAGE_NAME.tar.gz -C /tmp \
-  sudo cp -a /tmp/$PACKAGE_NAME /usr/local/bin \
-  rm -rf /tmp/$PACKAGE_NAME* \
-  sudo chown "$USER:$USER" /usr/local/bin/$PACKAGE_NAME \
-  sudo chmod +x /usr/local/bin/$PACKAGE_NAME
+aria2c -d /tmp -x 16 -s 16 -k 1M -o $PACKAGE_NAME.tar.gz https://github.com/jesseduffield/lazydocker/releases/download/v0.23.3/lazydocker_0.23.3_Linux_x86_64.tar.gz
+tar -xzf /tmp/$PACKAGE_NAME.tar.gz -C /tmp
+sudo cp -a /tmp/$PACKAGE_NAME /usr/local/bin
+rm -rf /tmp/$PACKAGE_NAME*
+sudo chown "$USER:$USER" /usr/local/bin/$PACKAGE_NAME
+sudo chmod +x /usr/local/bin/$PACKAGE_NAME
 
 # - figlet > ASCIIアート
-
-# - lolcat > テキストを虹色に
+sudo apt install -y figlet # figlet Hello, World!
 
 # - actionlint > GitHub Actions の Workflow ファイルの静的検査
+PACKAGE_NAME=actionlint
+aria2c -d /tmp -x 16 -s 16 -k 1M -o $PACKAGE_NAME.tar.gz https://github.com/rhysd/actionlint/releases/download/v1.7.1/actionlint_1.7.1_linux_amd64.tar.gz
+tar -xzf /tmp/$PACKAGE_NAME.tar.gz -C /tmp
+sudo cp -a /tmp/$PACKAGE_NAME /usr/local/bin
+rm -rf /tmp/$PACKAGE_NAME*
+sudo chown "$USER:$USER" /usr/local/bin/$PACKAGE_NAME
+sudo chmod +x /usr/local/bin/$PACKAGE_NAME
 
 # - aicommits > コミットメッセージを自動生成
-npm install -g aicommits
+# ???
+# npm install -g aicommits
+# aicommits config set OPENAI_KEY=<your token>
 
 # - cLive > ターミナル操作を自動化
 
 # - genact > 忙しいフリをする
 PACKAGE_NAME=genact
-sudo curl -Lo /usr/local/bin/$PACKAGE_NAME https://github.com/svenstaro/genact/releases/download/v1.4.2/genact-1.4.2-x86_64-unknown-linux-musl \
-  sudo chown "$USER:$USER" /usr/local/bin/$PACKAGE_NAME \
-  sudo chmod +x /usr/local/bin/$PACKAGE_NAME
+sudo curl -Lo /usr/local/bin/$PACKAGE_NAME https://github.com/svenstaro/genact/releases/download/v1.4.2/genact-1.4.2-x86_64-unknown-linux-musl
+sudo chown "$USER:$USER" /usr/local/bin/$PACKAGE_NAME
+sudo chmod +x /usr/local/bin/$PACKAGE_NAME
 
 # - gh > GitHub CLI
 
