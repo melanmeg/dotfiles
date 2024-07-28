@@ -40,6 +40,7 @@ aria2c -d /tmp -x 16 -s 16 -k 1M -o $PACKAGE_NAME.tar.gz https://github.com/jess
 # - actionlint > GitHub Actions の Workflow ファイルの静的検査
 
 # - aicommits > コミットメッセージを自動生成
+npm install -g aicommits
 
 # - cLive > ターミナル操作を自動化
 

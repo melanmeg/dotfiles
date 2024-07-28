@@ -84,7 +84,5 @@
 !/.colorrc
 !/.zpreztorc
 !/.mise.toml
-!/.env
 !/.env.sample
 !/.vimrc
-!/.vimrc.sample
