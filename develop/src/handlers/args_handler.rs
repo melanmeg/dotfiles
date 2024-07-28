@@ -153,7 +153,11 @@ pub fn wrap_setup_dotfiles(
 
             // Skip .git, .github, other than dotfiles
             let file_name = entry.file_name().to_string_lossy().into_owned();
-            if file_name == ".git" || file_name == ".github" || !file_name.starts_with('.') {
+            if file_name == ".git"
+                || file_name == ".github"
+                || file_name == ".gitignore"
+                || !file_name.starts_with('.')
+            {
                 continue;
             }
 
