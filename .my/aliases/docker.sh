@@ -11,23 +11,24 @@ alias dsys='docker system df'
 # docker-compose
 alias dc='docker-compose'
 alias dcp='docker-compose ps -a'
+alias dcu='docker-compose up -d'
 alias wdcp='watch docker-compose ps -a'
 alias dcb='docker-compose build'
 alias dcd='docker-compose down'
 alias dceli='docker-compose down --rmi all --volumes --remove-orphans'
 
-dcu() {
-  docker-compose up -d
-  while true; do
-    output=$(docker-compose ps)
-    echo "${output}"
-    if ! echo "${output}" grep -q -e "unhealthy" -e "starting"; then
-      break
-    fi
-    sleep 5
-  done
-  echo "All containers are healthy."
-}
+# dcu() {
+#   docker-compose up -d
+#   while true; do
+#     output=$(docker-compose ps)
+#     echo "${output}"
+#     if ! echo "${output}" grep -q -e "unhealthy" -e "starting"; then
+#       break
+#     fi
+#     sleep 5
+#   done
+#   echo "All containers are healthy."
+# }
 
 dcall() {
   docker-compose down

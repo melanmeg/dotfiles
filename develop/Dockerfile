@@ -1,30 +1,33 @@
 FROM ubuntu:24.04
 
-RUN apt update && apt upgrade -y
-RUN apt install -y git vim curl wget
+# Init Setup
+RUN sed -i.bak -r 's!http://(security|archive).ubuntu.com/ubuntu!http://ftp.riken.go.jp/Linux/ubuntu!' /etc/apt/sources.list.d/ubuntu.sources
+RUN apt upgrade -yU
+RUN apt purge -y needrestart
+RUN apt install -y git vim curl wget sudo
+RUN echo "set bell-style none" | tee -a /etc/inputrc
+RUN chmod -x /etc/update-motd.d/*
 
-USER root
-WORKDIR /root
+# Init User
+RUN useradd -m myuser
+RUN usermod -aG sudo myuser
+RUN echo 'myuser ALL=(ALL) NOPASSWD:ALL' | tee /etc/sudoers.d/myuser
 
-# zsh
-RUN apt install -y zsh tmux
-RUN chsh -s "$(which zsh)"
-
-# prezto
-RUN git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-RUN zsh -c 'setopt EXTENDED_GLOB'
-RUN zsh -c 'for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do; ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done'
-
-# peco
-RUN curl -L -o /peco_linux_amd64.tar.gz https://github.com/peco/peco/releases/download/v0.5.10/peco_linux_amd64.tar.gz
-RUN tar xvf /peco_linux_amd64.tar.gz -C /
-RUN mv /peco_linux_amd64/peco /usr/local/bin/
-RUN rm -rf /peco_linux_amd64.tar.gz /peco_linux_amd64
+# myuser
+USER myuser
+WORKDIR /home/myuser
 
 # git clone
 ARG CACHEBUST=1
 RUN git clone https://github.com/melanmeg/dotfiles.git
 
-# After comands
+# Install Shell
+RUN ./dotfiles/.bin/dotfiles -b
+# RUN ./dotfiles/.bin/mise_and_docker.sh
+# RUN ./dotfiles/.bin/recommend_cli_install.sh
+# RUN ./dotfiles/.bin/install-recommended-vscode-extensions.sh
+# RUN ./dotfiles/.bin/zsh_setup.sh
+
+# zsh After comands
 # $ zsh
 # $ peco --version
