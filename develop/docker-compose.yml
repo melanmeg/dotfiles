@@ -6,5 +6,7 @@ services:
     hostname: dot
     volumes:
       - ./target:/target
+    environment:
+      USER: myuser
     tty: true
     entrypoint: bash
