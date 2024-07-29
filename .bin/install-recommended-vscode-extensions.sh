@@ -2,11 +2,10 @@
 set -euo pipefail
 
 # Path to the extensions.json file
-# shellcheck disable=SC2088
-EXTENSIONS_FILE="~/.vscode/extensions.json"
+EXTENSIONS_FILE="$HOM"/.vscode/extensions.json
 
 # Pre Install ShellCheck
-sudo snap install shfmt
+sudo apt install -y shfmt
 
 # Check if extensions.json exists
 if [ ! -f "$EXTENSIONS_FILE" ]; then
@@ -15,9 +14,9 @@ if [ ! -f "$EXTENSIONS_FILE" ]; then
 fi
 
 # Read recommendations and install each extension
-for ext in $(jq -r '.recommendations[]' $EXTENSIONS_FILE); do
+for ext in $(jq -r '.recommendations[]' "$EXTENSIONS_FILE"); do
   echo "Installing extension: $ext"
-  code --install-extension $ext
+  code --install-extension "$ext"
 done
 
 echo "All extensions have been installed."

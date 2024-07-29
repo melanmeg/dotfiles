@@ -56,7 +56,7 @@
     "azcli",
     "bats"
   ],
-  "shellformat.path": "/snap/bin/shfmt",
+  "shellformat.path": "/usr/bin/shfmt",
   "shellcheck.enable": true,
   "shellcheck.enableQuickFix": true,
   "shellcheck.customArgs": ["-x"],

@@ -8,6 +8,11 @@ RUN apt install -y git vim curl wget sudo
 RUN echo "set bell-style none" | tee -a /etc/inputrc
 RUN chmod -x /etc/update-motd.d/*
 
+# Dockerにcodeが入らなかったため.（そもそも不要まである）
+# RUN curl -Lo /tmp/code.deb https://vscode.download.prss.microsoft.com/dbazure/download/stable/f1e16e1e6214d7c44d078b1f0607b2388f29d729/code_1.91.1-1720564633_amd64.deb
+# RUN apt install -y /tmp/code.deb
+# RUN rm -f /tmp/code.deb
+
 # Init User
 RUN useradd -m myuser
 RUN usermod -aG sudo myuser
@@ -22,6 +27,7 @@ ARG CACHEBURST=1
 RUN git clone https://github.com/melanmeg/dotfiles.git
 
 # Install shell
+# Dockerだとインストールに失敗するパッケージは除外.
 RUN sed -i '/ffmpeg\|gcloud\|azure-cli\|perl\|ansible-base/s/^/#/' ./dotfiles/.mise.toml
 RUN USER=myuser HOME=/home/myuser \
   ./dotfiles/.bin/dotfiles -b
@@ -29,10 +35,11 @@ RUN USER=myuser HOME=/home/myuser \
   ./dotfiles/.bin/mise_and_docker.sh
 RUN USER=myuser HOME=/home/myuser \
   ./dotfiles/.bin/recommend_cli_install.sh
+# こちらも同様 > Dockerにcodeが入らなかったため.（そもそも不要まである）
 # RUN USER=myuser HOME=/home/myuser \
 #   ./dotfiles/.bin/install-recommended-vscode-extensions.sh
-# RUN USER=myuser HOME=/home/myuser \
-#   ./dotfiles/.bin/zsh_setup.sh
+RUN USER=myuser HOME=/home/myuser \
+  ./dotfiles/.bin/zsh_setup.sh
 
 # After zsh comands
 # $ zsh
