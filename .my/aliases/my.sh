@@ -21,6 +21,10 @@ alias grepclean="grep -v -e '^\s*#' -e '^\s*$'" # grepclean [file]
 # python
 alias pyformat='pysen run format && pysen run lint'
 
+# cheat
+alias cheat='vim ~/.my/cheatsheet.sh'
+alias cheatvim='vim ~/.my/cheatsheet_vim.sh'
+
 # tmux
 # alias kill='tmux kill-session'
 # if [[ ! "$TERM" =~ "screen" ]]; then
