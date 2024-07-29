@@ -30,17 +30,17 @@ alias dceli='docker-compose down --rmi all --volumes --remove-orphans'
 #   echo "All containers are healthy."
 # }
 
-dcall() {
-  docker-compose down
-  docker-compose build "${1}"
-  docker-compose up -d
-  while true; do
-    output=$(docker-compose ps)
-    echo "${output}"
-    if ! echo "${output}" grep -q -e "unhealthy" -e "starting"; then
-      break
-    fi
-    sleep 5
-  done
-  echo "All containers are healthy."
-}
+# dcall() {
+#   docker-compose down
+#   docker-compose build "${1}"
+#   docker-compose up -d
+#   while true; do
+#     output=$(docker-compose ps)
+#     echo "${output}"
+#     if ! echo "${output}" grep -q -e "unhealthy" -e "starting"; then
+#       break
+#     fi
+#     sleep 5
+#   done
+#   echo "All containers are healthy."
+# }

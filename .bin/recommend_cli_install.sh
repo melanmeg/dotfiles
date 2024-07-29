@@ -20,16 +20,28 @@ npm i --prefix "$HOME/.my/nodejs"
 # - figlet > ASCIIアート (e.g., figlet Hello, World!)
 sudo apt install -y aria2 gping figlet
 
-### Generic function to download binary files
-install_package() {
+### Generic function to download binary files (tar)
+install_tar_package() {
   PACKAGE_NAME=$1
   URL=$2
-  aria2c -d /tmp -x 16 -s 16 -k 1M -o "$PACKAGE_NAME.tar.gz" "$URL"
-  tar -xzf "/tmp/$PACKAGE_NAME.tar.gz" -C /tmp
-  sudo cp -a "/tmp/$PACKAGE_NAME" /usr/local/bin
-  rm -rf "/tmp/$PACKAGE_NAME*"
-  sudo chown "$USER:$USER" "/usr/local/bin/$PACKAGE_NAME"
-  sudo chmod +x "/usr/local/bin/$PACKAGE_NAME"
+  aria2c -d /tmp -x 16 -s 16 -k 1M -o "$PACKAGE_NAME".tar.gz "$URL"
+  tar -xzf /tmp/"$PACKAGE_NAME".tar.gz -C /tmp
+  sudo cp -a /tmp/"$PACKAGE_NAME" /usr/local/bin
+  rm -rf /tmp/"$PACKAGE_NAME"*
+  sudo chown "$USER":"$USER" /usr/local/bin/"$PACKAGE_NAME"
+  sudo chmod +x /usr/local/bin/"$PACKAGE_NAME"
+}
+
+### Generic function to download binary files (zip)
+install_zip_package() {
+  PACKAGE_NAME=$1
+  URL=$2
+  aria2c -d /tmp -x 16 -s 16 -k 1M -o "$PACKAGE_NAME".tar.gz "$URL"
+  unzip /tmp/"$PACKAGE_NAME".zip -d /tmp
+  sudo cp -a /tmp/"$PACKAGE_NAME" /usr/local/bin
+  rm -rf /tmp/"$PACKAGE_NAME"*
+  sudo chown "$USER":"$USER" /usr/local/bin/"$PACKAGE_NAME"
+  sudo chmod +x /usr/local/bin/"$PACKAGE_NAME"
 }
 
 ### Setup install_package
@@ -38,11 +50,11 @@ install_package() {
 # - actionlint > GitHub Actions の Workflow ファイルの静的検査
 # - cLive > ターミナル操作を自動化
 # - pocketbase
-install_package bandwhich https://github.com/imsnif/bandwhich/releases/download/v0.22.2/bandwhich-v0.22.2-x86_64-unknown-linux-musl.tar.gz
-install_package lazydocker https://github.com/jesseduffield/lazydocker/releases/download/v0.23.3/lazydocker_0.23.3_Linux_x86_64.tar.gz
-install_package actionlint https://github.com/rhysd/actionlint/releases/download/v1.7.1/actionlint_1.7.1_linux_amd64.tar.gz
-install_package clive https://github.com/koki-develop/clive/releases/download/v0.12.9/clive_Linux_x86_64.tar.gz
-install_package pocketbase https://github.com/pocketbase/pocketbase/releases/download/v0.22.18/pocketbase_0.22.18_linux_amd64.zip
+install_tar_package bandwhich https://github.com/imsnif/bandwhich/releases/download/v0.22.2/bandwhich-v0.22.2-x86_64-unknown-linux-musl.tar.gz
+install_tar_package lazydocker https://github.com/jesseduffield/lazydocker/releases/download/v0.23.3/lazydocker_0.23.3_Linux_x86_64.tar.gz
+install_tar_package actionlint https://github.com/rhysd/actionlint/releases/download/v1.7.1/actionlint_1.7.1_linux_amd64.tar.gz
+install_tar_package clive https://github.com/koki-develop/clive/releases/download/v0.12.9/clive_Linux_x86_64.tar.gz
+install_zip_package pocketbase https://github.com/pocketbase/pocketbase/releases/download/v0.22.18/pocketbase_0.22.18_linux_amd64.zip
 
 ### Developments
 # - charming

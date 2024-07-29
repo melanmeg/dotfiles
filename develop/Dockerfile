@@ -22,9 +22,9 @@ ARG CACHEBUST=1
 RUN git clone https://github.com/melanmeg/dotfiles.git
 
 # Install Shell
-RUN sed -i '/ffmpeg\|gcloud\|azure-cli\|perl/s/^/#/' ./dotfiles/.mise.toml
+RUN sed -i '/ffmpeg\|gcloud\|azure-cli\|perl\|ansible-base/s/^/#/' ./dotfiles/.mise.toml
 RUN ./dotfiles/.bin/dotfiles -b
-RUN ./dotfiles/.bin/mise_and_docker.sh
+RUN USER=myuser ./dotfiles/.bin/mise_and_docker.sh
 # RUN ./dotfiles/.bin/recommend_cli_install.sh
 # RUN ./dotfiles/.bin/install-recommended-vscode-extensions.sh
 # RUN ./dotfiles/.bin/zsh_setup.sh
