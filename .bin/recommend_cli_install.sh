@@ -1,6 +1,9 @@
 #!/bin/bash
 set -eux
 
+# mise set env
+eval "$(~/.local/bin/mise activate bash)"
+
 ### Setup my poetry
 # - thefuck
 # - glances
