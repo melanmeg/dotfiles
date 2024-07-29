@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu
+set -eux
 
 ### Ubuntu22.04 ###
 ubuntu_setup() {

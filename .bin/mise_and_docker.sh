@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu
+set -eux
 
 # Install docker
 sudo curl -fsSL https://get.docker.com | sh
@@ -12,7 +12,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo usermod -aG docker "$USER"
 
 # dependency mise
-sudo apt install -y unzip bzip2 # nasm yasm gcc
+sudo apt install -y unzip bzip2 # ffmpeg depend on gcc nasm yasm
 
 # Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -22,7 +22,7 @@ curl https://mise.run | sh
 
 function mise_cmd() {
   ~/.local/bin/mise i -y
-  ~/.local/bin/mise use -gy azure-cli@latest
+  # ~/.local/bin/mise use -gy azure-cli@latest
 }
 for attempt in {1..3}; do
   if mise_cmd; then
@@ -35,7 +35,7 @@ for attempt in {1..3}; do
 done
 
 # create ansible Group
-groupadd -g 9010 ansible
+sudo groupadd -g 9010 ansible
 
 # Add ansible Group
 sudo usermod -aG ansible "$USER"
