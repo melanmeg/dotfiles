@@ -2,9 +2,21 @@
 set -eux
 
 # mise set env
-# eval "$(~/.local/bin/mise activate bash)"
-MISE_BIN_PATH="$HOME/.local/share/mise/installs/*/*/bin"
-export PATH="$PATH:$MISE_BIN_PATH"
+eval "$(~/.local/bin/mise activate bash)"
+
+# PATH add to poetry. For exe docker-compose
+for dir in "$HOME"/.local/share/mise/installs/poetry/*; do
+  if [ -d "$dir" ]; then
+    export PATH="$PATH:$dir/bin"
+  fi
+done
+
+# PATH add to node. For exe docker-compose
+for dir in "$HOME"/.local/share/mise/installs/node/*; do
+  if [ -d "$dir" ]; then
+    export PATH="$PATH:$dir/bin"
+  fi
+done
 
 ### Setup my poetry
 # - thefuck
