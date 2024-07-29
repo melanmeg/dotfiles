@@ -36,7 +36,7 @@ install_tar_package() {
 install_zip_package() {
   PACKAGE_NAME=$1
   URL=$2
-  aria2c -d /tmp -x 16 -s 16 -k 1M -o "$PACKAGE_NAME".tar.gz "$URL"
+  aria2c -d /tmp -x 16 -s 16 -k 1M -o "$PACKAGE_NAME".zip "$URL"
   unzip /tmp/"$PACKAGE_NAME".zip -d /tmp
   sudo cp -a /tmp/"$PACKAGE_NAME" /usr/local/bin
   rm -rf /tmp/"$PACKAGE_NAME"*

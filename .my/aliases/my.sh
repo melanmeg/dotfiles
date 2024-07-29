@@ -7,7 +7,7 @@ alias gitpush='git add -A && git commit -m "submit" && git push origin main'
 
 # clear
 alias clr='rm ~/.ssh/known_hosts'
-alias mclear='echo 3 > /proc/sys/vm/drop_caches'
+alias mclear='sudo echo 3 > /proc/sys/vm/drop_caches'
 
 # keygen
 alias keygen='ssh-keygen -t ed25519 -C "" -f ./keygen -N ""'
