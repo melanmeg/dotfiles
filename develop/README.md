@@ -25,7 +25,7 @@ cargo build --release --target=x86_64-unknown-linux-musl
 ```bash
 cargo build
 
-docker-compose build --build-arg CACHEBUST=$(date +%s) \
+docker-compose build --build-arg CACHEBURST=$(date +%s) \
 docker-compose up -d \
 docker-compose exec dot bash
 

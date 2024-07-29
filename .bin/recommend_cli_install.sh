@@ -2,7 +2,9 @@
 set -eux
 
 # mise set env
-eval "$(~/.local/bin/mise activate bash)"
+# eval "$(~/.local/bin/mise activate bash)"
+MISE_BIN_PATH="$HOME/.local/share/mise/installs/*/*/bin"
+export PATH="$PATH:$MISE_BIN_PATH"
 
 ### Setup my poetry
 # - thefuck
