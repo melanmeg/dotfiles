@@ -23,7 +23,7 @@ RUN git clone https://github.com/melanmeg/dotfiles.git
 
 # Install Shell
 RUN ./dotfiles/.bin/dotfiles -b
-# RUN ./dotfiles/.bin/mise_and_docker.sh
+RUN ./dotfiles/.bin/mise_and_docker.sh
 # RUN ./dotfiles/.bin/recommend_cli_install.sh
 # RUN ./dotfiles/.bin/install-recommended-vscode-extensions.sh
 # RUN ./dotfiles/.bin/zsh_setup.sh
