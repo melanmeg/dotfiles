@@ -6,7 +6,7 @@
 
 ```bash
 git clone https://github.com/melanmeg/dotfiles.git
-./dotfiles/.bin/dotfiles --backup
+./dotfiles/.bin/dotfiles --backup --gitconfig-shared
 ```
 
 ```bash
@@ -22,9 +22,10 @@ Rust CLI for Dotfiles.
 Usage: dotfiles [OPTIONS]
 
 Options:
-  -f, --force    Force overwrite
-  -b, --backup   Backup dotfiles
-  -l, --link     Link to homedir
-  -h, --help     Print help
-  -V, --version  Print version
+  -f, --force             Force overwrite
+  -b, --backup            Backup dotfiles
+  -l, --link              Link to homedir
+  -g, --gitconfig-shared  git config (.gitconfig_shared)
+  -h, --help              Print help
+  -V, --version           Print version
 ```

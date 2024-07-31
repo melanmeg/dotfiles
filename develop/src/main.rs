@@ -16,6 +16,9 @@ struct Args {
     /// Link to homedir
     #[arg(short, long)]
     link: bool,
+    /// git config (.gitconfig_shared)
+    #[arg(short, long)]
+    gitconfig_shared: bool,
 }
 
 fn main() {
@@ -26,11 +29,15 @@ fn main() {
 fn install_handler(args: Args) {
     link_to_homedir(args.force, args.backup, args.link);
     println!("");
-    run_cmd(
-        "git config --global include.path ~/.gitconfig_shared",
-        true,
-        Some(&true),
-    );
-    println!("");
+
+    if args.gitconfig_shared {
+        run_cmd(
+            "git config --global include.path ~/.gitconfig_shared",
+            true,
+            Some(&true),
+        );
+        println!("");
+    }
+
     run_cmd(r#"echo -e \e[1;36m Install completed!!!! \e[m"#, true, None);
 }
