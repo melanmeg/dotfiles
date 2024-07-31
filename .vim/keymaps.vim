@@ -14,8 +14,8 @@ noremap <S-l> $
 noremap <S-k> {
 noremap <S-j> }
 noremap m %
-"noremap : ;
-"noremap ; :
+noremap : ;
+noremap ; :
 noremap <C-c> <ESC>
 nnoremap s <Nop>
 nnoremap ZZ <Nop>

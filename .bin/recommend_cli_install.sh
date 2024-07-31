@@ -72,6 +72,7 @@ install_tar_package lazydocker https://github.com/jesseduffield/lazydocker/relea
 install_tar_package actionlint https://github.com/rhysd/actionlint/releases/download/v1.7.1/actionlint_1.7.1_linux_amd64.tar.gz
 install_tar_package clive https://github.com/koki-develop/clive/releases/download/v0.12.9/clive_Linux_x86_64.tar.gz
 install_zip_package pocketbase https://github.com/pocketbase/pocketbase/releases/download/v0.22.18/pocketbase_0.22.18_linux_amd64.zip
+install_zip_package procs https://github.com/dalance/procs/releases/download/v0.14.6/procs-v0.14.6-x86_64-linux.zip
 
 ### Developments
 # - charming
