@@ -10,8 +10,10 @@ eval "$(~/.local/bin/mise activate bash)"
 
 # poetry env
 # VENV_PATH=$(poetry env info --path --directory "$HOME/.my/poetry")
-VENV_PATH="$HOME/.cache/pypoetry/virtualenvs/*"
-export PATH="$PATH:$VENV_PATH/bin"
+VENV_PATH="$HOME/.cache/pypoetry/virtualenvs"
+for dir in "$VENV_PATH"/*/bin; do
+  [[ -d "$dir" && ":$PATH:" != *":$dir:"* ]] && PATH="$dir:$PATH"
+done
 
 # thefuck
 # eval "$(thefuck --alias)"
@@ -33,4 +35,6 @@ function fuck() {
 
 # nodejs env
 NODE_MODULE_PATH="$HOME/.my/nodejs/node_modules/.bin"
-export PATH="$PATH:$NODE_MODULE_PATH"
+if [[ ":$PATH:" != *":$NODE_MODULE_PATH:"* ]]; then
+  export PATH="$PATH:$NODE_MODULE_PATH"
+fi
