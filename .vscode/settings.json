@@ -2,31 +2,33 @@
   // ================================
   // General Settings
   // ================================
-  "editor.renderWhitespace": "boundary",
-  "editor.minimap.enabled": false,
-  "editor.tabSize": 2,
-  "editor.detectIndentation": false,
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": false,
-  "editor.formatOnType": false,
-  "editor.insertSpaces": true,
-  "editor.stickyTabStops": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.acceptSuggestionOnCommitCharacter": true,
   "editor.acceptSuggestionOnEnter": "on",
+  "editor.autoIndent": "full",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.detectIndentation": false,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": false,
+  "editor.insertSpaces": true,
+  "editor.minimap.enabled": false,
   "editor.quickSuggestions": {
-    "other": true,
     "comments": false,
+    "other": true,
     "strings": false
   },
-  "editor.autoIndent": "none",
+  "editor.renderWhitespace": "boundary",
+  "editor.stickyTabStops": true,
+  "editor.tabSize": 2,
+  "extensions.autoUpdate": false,
   "extensions.ignoreRecommendations": true,
+  "telemetry.telemetryLevel": "off",
   "window.zoomLevel": -0.7,
-  "workbench.startupEditor": "none",
   "workbench.colorTheme": "Monokai",
-  "workbench.editor.tabActionLocation": "left",
   "workbench.editor.languageDetection": false,
+  "workbench.editor.tabActionLocation": "left",
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none",
 
   // ================================
   // Extension Settings
@@ -34,44 +36,54 @@
   "files.associations": {
     "*.conf": "nft"
   },
+  "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "remote.SSH.enableRemoteCommand": true,
   "prettier.tabWidth": 2,
-  "vs-kubernetes": {
-    "vscode-kubernetes.helm-path-linux": "/root/.local/state/vs-kubernetes/tools/helm/linux-amd64/helm",
-    "vscode-kubernetes.kubectl-path-linux": "/root/.local/state/vs-kubernetes/tools/kubectl/kubectl",
-    "vscode-kubernetes.minikube-path-linux": "/root/.local/state/vs-kubernetes/tools/minikube/linux-amd64/minikube"
-  },
-  "shellformat.effectLanguages": [
-    "shellscript",
-    "dockerfile",
-    "dotenv",
-    "hosts",
-    "jvmoptions",
-    "ignore",
-    "gitignore",
-    "properties",
-    "spring-boot-properties",
-    "azcli",
-    "bats"
-  ],
-  "shellformat.path": "/usr/bin/shfmt",
+  "remote-explorer.foldersSortOrder": "alphabetical",
+  "search.quickOpen.includeHistory": false,
+  "shellcheck.customArgs": ["-x"],
   "shellcheck.enable": true,
   "shellcheck.enableQuickFix": true,
-  "shellcheck.customArgs": ["-x"],
+  "shellformat.effectLanguages": [
+    "azcli",
+    "bats",
+    "dockerfile",
+    "dotenv",
+    "gitignore",
+    "hosts",
+    "ignore",
+    "jvmoptions",
+    "properties",
+    "spring-boot-properties"
+  ],
+  "shellformat.path": "/usr/bin/shfmt",
+  "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "files.trimTrailingWhitespace": true,
-  "git.confirmSync": false,
-  "git.autofetch": true,
 
   // ================================
   // Python Settings
   // ================================
   "autopep8.args": ["--indent-size=2"],
+  "black-formatter.args": ["--line-length=100"],
+  "flake8.args": ["--max-line-length=100"],
+  "isort.args": ["--profile", "black"],
+
+  // ================================
+  // Go Settings
+  // ================================
 
   // ================================
   // Launguage Settings
   // ================================
   "[python]": {
-    "editor.defaultFormatter": "ms-python.autopep8"
+    // "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
   },
   "[go]": {
     "editor.tabSize": 2
