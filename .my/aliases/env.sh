@@ -38,3 +38,8 @@ NODE_MODULE_PATH="$HOME/.my/nodejs/node_modules/.bin"
 if [[ ":$PATH:" != *":$NODE_MODULE_PATH:"* ]]; then
   export PATH="$PATH:$NODE_MODULE_PATH"
 fi
+
+# golang env
+if [[ ":$PATH:" != *":/usr/local/go/bin:"* ]]; then
+  export PATH="$PATH:/usr/local/go/bin"
+fi

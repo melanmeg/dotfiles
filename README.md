@@ -2,7 +2,7 @@
 
 ## Procedure
 
-- Ubuntu
+- Ubuntu 24.04 AMD x64
 
 ```bash
 git clone https://github.com/melanmeg/dotfiles.git

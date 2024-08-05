@@ -73,6 +73,9 @@
   // ================================
   // Go Settings
   // ================================
+  // go: install/update tools
+  "go.goroot": "${env:GOROOT}",
+  "go.gopath": "${env:GOPATH}",
 
   // ================================
   // Launguage Settings

@@ -1,6 +1,6 @@
 [env]
 NODE_ENV = 'development'
-NPM_CONFIG_PREFIX = "~/.npm-global"
+NPM_CONFIG_PREFIX = '~/.npm-global'
 
 [tools]
 ansible-base = 'latest'
@@ -17,7 +17,6 @@ exa          = 'latest'
 fd           = 'latest'
 ffmpeg       = 'latest' # dependencies nasm yasm gcc
 gcloud       = 'latest'
-go           = ['1.22.5']
 hyperfine    = 'latest'
 java         = ['17.0.2']
 jq           = 'latest'
@@ -29,7 +28,6 @@ ripgrep      = 'latest'
 terraform    = ['1.9.2']
 trivy        = 'latest'
 vhs          = 'latest'
-zig          = ['0.13.0']
 zoxide       = 'latest'
 
 [plugins]
