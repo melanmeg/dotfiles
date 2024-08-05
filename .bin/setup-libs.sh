@@ -20,31 +20,25 @@ sudo usermod -aG docker "$USER"
 
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+# At Upgrade
+# go install golang.org/dl/go[version]@latest
 
 
 # ================================
 # Install Go
 # ================================
-
-install_tar_package() {
-  local GO_VERSION=$1
-  local URL="https://go.dev/dl/go$GO_VERSION.linux-amd64.tar.gz"
-  curl -fsSL "$URL" -o /tmp/go.tar.gz
-  sudo tar -C /usr/local -xzf /tmp/go.tar.gz
-  if [[ ":$PATH:" != *":/usr/local/go/bin:"* ]]; then
-    export PATH="$PATH:/usr/local/go/bin"
-  fi
-  rm -f /tmp/go.tar.gz
-}
-
-if [ -f "$HOME/.env" ]; then
-  # shellcheck disable=SC3046,SC1091,SC2086
-  source "$HOME/.env"
+# go: install/update tools
+# ※Goは1系では、後方互換性が保証されている
+# ※2系では、go2のようにリリースされるらしい
+sudo rm -rf /usr/local/go
+TAR_FILENAME=$(curl 'https://go.dev/dl/?mode=json' | jq -r '.[0].files[] | select(.os == "linux" and .arch == "amd64" and .kind == "archive") | .filename')
+URL="https://go.dev/dl/$TAR_FILENAME"
+curl -fsSL "$URL" -o /tmp/go.tar.gz
+sudo tar -C /usr/local -xzf /tmp/go.tar.gz
+if [[ ":$PATH:" != *":/usr/local/go/bin:"* ]]; then
+  export PATH="$PATH:/usr/local/go/bin"
 fi
-
-GO_VERSION="${INSTALL_GO_VERSION:-1.22.5}"
-install_tar_package "$GO_VERSION"
-
+rm -f /tmp/go.tar.gz
 
 # ================================
 # Install mise
