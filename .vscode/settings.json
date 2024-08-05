@@ -1,23 +1,9 @@
 {
-  // ================
-  // general settings
-  // ================
+  // ================================
+  // General Settings
+  // ================================
   "editor.renderWhitespace": "boundary",
   "editor.minimap.enabled": false,
-  "extensions.ignoreRecommendations": true,
-  "window.zoomLevel": -0.7,
-  "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Monokai",
-  "workbench.editor.tabActionLocation": "left",
-  "workbench.editor.languageDetection": false,
-  "workbench.iconTheme": "material-icon-theme",
-  "files.associations": {
-    "*.conf": "nft"
-  },
-
-  // ===============
-  // common settings
-  // ===============
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
   "editor.formatOnSave": true,
@@ -33,16 +19,27 @@
     "comments": false,
     "strings": false
   },
-  "editor.autoIndent": "abandoned",
-  "extensions.autoUpdate": false,
-  "telemetry.telemetryLevel": "off",
+  "editor.autoIndent": "none",
+  "extensions.ignoreRecommendations": true,
+  "window.zoomLevel": -0.7,
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Monokai",
+  "workbench.editor.tabActionLocation": "left",
+  "workbench.editor.languageDetection": false,
+  "workbench.iconTheme": "material-icon-theme",
+
+  // ================================
+  // Extension Settings
+  // ================================
+  "files.associations": {
+    "*.conf": "nft"
+  },
   "prettier.tabWidth": 2,
   "vs-kubernetes": {
     "vscode-kubernetes.helm-path-linux": "/root/.local/state/vs-kubernetes/tools/helm/linux-amd64/helm",
     "vscode-kubernetes.kubectl-path-linux": "/root/.local/state/vs-kubernetes/tools/kubectl/kubectl",
     "vscode-kubernetes.minikube-path-linux": "/root/.local/state/vs-kubernetes/tools/minikube/linux-amd64/minikube"
   },
-  "autopep8.args": ["--indent-size=2"],
   "shellformat.effectLanguages": [
     "shellscript",
     "dockerfile",
@@ -60,53 +57,40 @@
   "shellcheck.enable": true,
   "shellcheck.enableQuickFix": true,
   "shellcheck.customArgs": ["-x"],
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "files.trimTrailingWhitespace": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
 
-  // ============
-  // SSH settings
-  // ============
-  "remote.SSH.enableRemoteCommand": true,
-  "remote.SSH.remotePlatform": {
-    "192.168.11.21": "linux",
-    "192.168.11.52": "linux",
-    "private-isu1": "linux",
-    "ope1": "linux",
-    "isu1": "linux",
-    "isu2": "linux",
-    "isu3": "linux",
-    "test-isucon13": "linux",
-    "test-isucon13-bm": "linux",
-    "openvpn-server": "linux",
-    "isu13": "linux",
-    "isu-bm": "linux",
-    "base1": "linux",
-    "hoge1": "linux"
-  },
+  // ================================
+  // Python Settings
+  // ================================
+  "autopep8.args": ["--indent-size=2"],
 
-  // ==================
-  // launguage settings
-  // ==================
+  // ================================
+  // Launguage Settings
+  // ================================
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
-  "[go]": {},
+  "[go]": {
+    "editor.tabSize": 2
+  },
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
-  "[typescript]": {},
+  "[typescript]": {
+    "editor.tabSize": 2
+  },
   "[javascript]": {
     "editor.tabSize": 2
   },
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "[ssh_config]": {},
-  "[ansible-jinja]": {},
-  "[ansible]": {},
-  "[nft]": {},
   "[NGINX]": {
     "editor.formatOnType": false
   },
-  "[jsonc]": {},
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
@@ -122,14 +106,15 @@
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
-  "files.trimTrailingWhitespace": true,
   "[dotenv]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "terminal.integrated.defaultProfile.windows": "Git Bash",
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
-  "git.confirmSync": false,
-  "git.autofetch": true
+  "[ssh_config]": {},
+  "[ansible-jinja]": {},
+  "[ansible]": {},
+  "[nft]": {},
+  "[jsonc]": {}
 }

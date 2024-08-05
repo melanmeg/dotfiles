@@ -30,6 +30,6 @@
     "ms-python.black-formatter",
     "ecmel.vscode-html-css",
     "ritwickdey.liveserver",
-    ""
+    "ms-python.autopep8"
   ]
 }
