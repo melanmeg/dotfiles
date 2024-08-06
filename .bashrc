@@ -26,7 +26,8 @@ fi
 #  load settings
 # ================================
 
-# shellcheck disable=SC1090
-find ~/.my/aliases/ -type f -print | while read -r file; do
+files=$(find ~/.my/aliases/ -type f -print)
+for file in $files; do
+  # shellcheck disable=SC1090
   [ -f "$file" ] && source "$file"
 done
