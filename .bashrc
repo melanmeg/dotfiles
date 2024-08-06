@@ -26,7 +26,7 @@ fi
 #  load settings
 # ================================
 
-for file in ~/.my/aliases/*; do
+for file in ~/.my/aliases/{,/*}; do
   # shellcheck disable=SC1090
-  source "$file"
+  [ -f "$file" ] && source "$file"
 done
