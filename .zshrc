@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-for file in ~/.my/aliases/{,/*}; do
-  # shellcheck disable=SC1090
+# shellcheck disable=SC1090
+find ~/.my/aliases/ -type f -print | while read -r file; do
   [ -f "$file" ] && source "$file"
 done
