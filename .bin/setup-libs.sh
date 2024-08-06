@@ -30,6 +30,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 # go: install/update tools
 # ※Goは1系では、後方互換性が保証されている
 # ※2系では、go2のようにリリースされるらしい
+# ※miseでインストールするとVSCodeがGOROOT,GOPATHを要求され、認識しなくなる
 sudo rm -rf /usr/local/go
 TAR_FILENAME=$(curl 'https://go.dev/dl/?mode=json' | jq -r '.[0].files[] | select(.os == "linux" and .arch == "amd64" and .kind == "archive") | .filename')
 URL="https://go.dev/dl/$TAR_FILENAME"
