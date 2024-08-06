@@ -2,18 +2,24 @@
 set -eux
 
 # go: install/update tools
-# ※Goは1系では、後方互換性が保証されている
-# ※2系では、go2のようにリリースされるらしい
-# ※miseでインストールするとVSCodeがGOROOT,GOPATHを要求され、認識しなくなる
+# ※Goは1系内では後方互換性が保証され、2系ではgo2のようにリリースされるらしい
+# ※miseでインストールするとVSCodeがGOROOT,GOPATHを要求され、認識しなくなるため
 sudo rm -rf /usr/local/go
 TAR_FILENAME=$(curl 'https://go.dev/dl/?mode=json' | jq -r '.[0].files[] | select(.os == "linux" and .arch == "amd64" and .kind == "archive") | .filename')
 URL="https://go.dev/dl/$TAR_FILENAME"
 curl -fsSL "$URL" -o /tmp/go.tar.gz
 sudo tar -C /usr/local -xzf /tmp/go.tar.gz
-if [[ ":$PATH:" != *":/usr/local/go/bin:"* ]]; then
-  export PATH="$PATH:/usr/local/go/bin"
-fi
 rm -f /tmp/go.tar.gz
+
+# golang env
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+if [[ ":$PATH:" != *":$GOROOT/bin:"* ]]; then
+  export PATH="$PATH:$GOROOT/bin"
+fi
+if [[ ":$PATH:" != *":$GOPATH/bin:"* ]]; then
+  export PATH=$PATH:$GOPATH/bin
+fi
 
 # golangci-lint
 # Linter ists: https://golangci-lint.run/usage/linters/
