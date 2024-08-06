@@ -6,7 +6,9 @@ export VISUAL='vim'
 unset LESS
 
 # mise env
-eval "$(~/.local/bin/mise activate bash)"
+if [ -f ~/.local/bin/mise ]; then
+  eval "$(~/.local/bin/mise activate bash)"
+fi
 
 # poetry env
 # VENV_PATH=$(poetry env info --path --directory "$HOME/.my/poetry")

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-eval "$(~/.local/bin/mise activate bash)"
+if [ -f ~/.local/bin/mise ]; then
+  eval "$(~/.local/bin/mise activate bash)"
+fi
 
 if [ -f "$HOME/.env" ]; then
   # shellcheck disable=SC3046,SC1091,SC2086
