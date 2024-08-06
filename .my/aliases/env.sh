@@ -40,6 +40,11 @@ if [[ ":$PATH:" != *":$NODE_MODULE_PATH:"* ]]; then
 fi
 
 # golang env
-if [[ ":$PATH:" != *":/usr/local/go/bin:"* ]]; then
-  export PATH="$PATH:/usr/local/go/bin"
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+if [[ ":$PATH:" != *":$GOROOT/bin:"* ]]; then
+  export PATH="$PATH:$GOROOT/bin"
+fi
+if [[ ":$PATH:" != *":$GOPATH/bin:"* ]]; then
+  export PATH=$PATH:$GOPATH/bin
 fi

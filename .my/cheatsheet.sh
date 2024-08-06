@@ -1,3 +1,4 @@
+#!/bin/bash
 #################################
 #   Alt Shell                   #
 #################################
@@ -36,6 +37,8 @@ speedtest-cli  : Command line interface for testing internet bandwidth using spe
 aws            : AWS CLI.
 az             : Azure CLI.
 gcloud         : Google Cloud CLI.
+trivy          : vulnerability assessment tool.
+# Aliases
 tf             : alias "terraform"
 playc          : alias "ansible-playbook ... -C"
 dc             : alias "docker-compose"
@@ -43,7 +46,6 @@ wdcp           : alias "watch docker-compose ps -a"
 dcall          : cycle docker-compose.
 drm, drmi      : all delete containers, images.
 deli           : all delete docker including cache.
-trivy          : vulnerability assessment tool.
 
 #################################
 #   Develop                     #
@@ -52,9 +54,12 @@ trivy          : vulnerability assessment tool.
   Go, Java, Python, Perl, Zig, Rust,
 # JavaScript Runtime
   Nodejs, Deno, Bun, farm
-# CLI
+# CLI tools
 poetry         : python package manager.
 pocketbase     : an open source Go backend.
 charming       : A Rust Visualization Library.
 go-zero        : go-zero is a web and rpc framework with lots of builtin engineering practices.
+# Aliases
+pyformat       : python formatter.
+getgotests     : go get gotests
 '
