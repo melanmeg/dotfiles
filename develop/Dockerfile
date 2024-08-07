@@ -32,10 +32,12 @@ RUN sed -i '/ffmpeg\|gcloud\|azure-cli\|perl\|ansible-base/s/^/#/' ./dotfiles/.m
 RUN USER=myuser HOME=/home/myuser \
   ./dotfiles/.bin/dotfiles -b
 RUN USER=myuser HOME=/home/myuser \
-  ./dotfiles/.bin/mise_and_docker.sh
+  ./dotfiles/.bin/setup-libs.sh
+RUN USER=myuser HOME=/home/myuser \
+  ./dotfiles/.bin/install-golang.sh
 RUN USER=myuser HOME=/home/myuser \
   ./dotfiles/.bin/recommend_cli_install.sh
-# こちらも同様 > Dockerにcodeが入らなかったため.（そもそも不要まである）
+# Dockerにcodeが入らなかったため.（そもそも不要まである）
 # RUN USER=myuser HOME=/home/myuser \
 #   ./dotfiles/.bin/install-recommended-vscode-extensions.sh
 RUN USER=myuser HOME=/home/myuser \
