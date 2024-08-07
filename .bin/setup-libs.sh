@@ -20,6 +20,10 @@ sudo usermod -aG docker "$USER"
 # ================================
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
+# depend
+sudo apt install -y build-essential
+rustup target add x86_64-unknown-linux-musl
+
 
 # ================================
 # Install mise
