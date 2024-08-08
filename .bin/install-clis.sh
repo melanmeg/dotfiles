@@ -7,14 +7,14 @@ eval "$(~/.local/bin/mise activate bash)"
 # PATH add to poetry. For exe docker-compose
 for dir in "$HOME"/.local/share/mise/installs/poetry/*; do
   if [ -d "$dir" ]; then
-    export PATH="$PATH:$dir/bin"
+    export PATH="$dir/bin:$PATH" # head is higher priority
   fi
 done
 
 # PATH add to node. For exe docker-compose
 for dir in "$HOME"/.local/share/mise/installs/node/*; do
   if [ -d "$dir" ]; then
-    export PATH="$PATH:$dir/bin"
+    export PATH="$dir/bin:$PATH" # head is higher priority
   fi
 done
 

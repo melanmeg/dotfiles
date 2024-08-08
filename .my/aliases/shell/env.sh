@@ -38,15 +38,15 @@ function fuck() {
 # nodejs env
 NODE_MODULE_PATH="$HOME/.my/nodejs/node_modules/.bin"
 if [[ ":$PATH:" != *":$NODE_MODULE_PATH:"* ]]; then
-  export PATH="$PATH:$NODE_MODULE_PATH"
+  export PATH="$NODE_MODULE_PATH:$PATH"
 fi
 
 # golang env
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 if [[ ":$PATH:" != *":$GOROOT/bin:"* ]]; then
-  export PATH="$PATH:$GOROOT/bin"
+  export PATH="$GOROOT/bin:$PATH"
 fi
 if [[ ":$PATH:" != *":$GOPATH/bin:"* ]]; then
-  export PATH=$PATH:$GOPATH/bin
+  export PATH=$GOPATH/bin:$PATH
 fi
