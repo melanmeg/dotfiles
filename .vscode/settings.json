@@ -33,9 +33,6 @@
   // ================================
   // Extension Settings
   // ================================
-  "files.associations": {
-    "*.conf": "nft"
-  },
   "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
   "git.confirmSync": false,
@@ -73,6 +70,14 @@
   // ================================
   // Launguage Settings
   // ================================
+  "files.associations": {
+    "*.conf": "nginx",
+    // "*.conf": "nft",
+    "*.yml": "ansible",
+    "*.yaml": "ansible"
+    // "*.yml": "yaml"
+    // "*.yaml": "yaml"
+  },
   "[python]": {
     // "editor.defaultFormatter": "ms-python.autopep8",
     "editor.defaultFormatter": "ms-python.black-formatter",

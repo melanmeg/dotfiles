@@ -29,7 +29,10 @@ rustup target add x86_64-unknown-linux-musl
 # Install ansible
 # ================================
 
-# ansible is installed by poetry.
+sudo apt install -y pipx
+pipx install --include-deps ansible
+# Upgrading
+# pipx upgrade --include-injected ansible
 
 # create ansible Group
 sudo groupadd -g 9010 ansible
