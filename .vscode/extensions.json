@@ -29,6 +29,7 @@
     "ritwickdey.liveserver",
     "rust-lang.rust-analyzer",
     "serayuzgur.crates",
+    "tamasfe.even-better-toml",
     "timonwong.shellcheck",
     "william-voyek.vscode-nginx"
   ]
