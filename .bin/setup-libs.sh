@@ -26,6 +26,19 @@ rustup target add x86_64-unknown-linux-musl
 
 
 # ================================
+# Install ansible
+# ================================
+
+# ansible is installed by poetry.
+
+# create ansible Group
+sudo groupadd -g 9010 ansible
+
+# Add ansible Group
+sudo usermod -aG ansible "$USER"
+
+
+# ================================
 # Install mise
 # ================================
 
@@ -48,9 +61,3 @@ for attempt in {1..3}; do
     sleep 5
   fi
 done
-
-# create ansible Group
-sudo groupadd -g 9010 ansible
-
-# Add ansible Group
-sudo usermod -aG ansible "$USER"
