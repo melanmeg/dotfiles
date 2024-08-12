@@ -29,8 +29,11 @@ rustup target add x86_64-unknown-linux-musl
 # Install ansible
 # ================================
 
+# ref: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible-with-pipx
+#    : https://ansible.readthedocs.io/projects/lint/installing/#installing-the-latest-version
 sudo apt install -y pipx
 pipx install --include-deps ansible
+pipx install ansible-lint
 # Upgrading
 # pipx upgrade --include-injected ansible
 

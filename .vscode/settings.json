@@ -68,6 +68,11 @@
   "isort.args": ["--profile", "black"],
 
   // ================================
+  // Ansible Settings
+  // ================================
+  "ansible.validation.lint.enabled": false,
+
+  // ================================
   // Launguage Settings
   // ================================
   "files.associations": {
