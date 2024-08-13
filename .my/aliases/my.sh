@@ -5,7 +5,7 @@
 alias branchclean="git fetch --prune && git branch -v | grep \\[gone] | awk '{print $1}' | xargs git branch -d"
 
 # clear
-alias clr='rm -f ~/.ssh/known_hosts'
+alias clr='rm -f ~/.ssh/known_hosts*'
 alias mclear='sudo echo 3 > /proc/sys/vm/drop_caches'
 
 # keygen

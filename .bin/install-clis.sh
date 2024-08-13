@@ -24,7 +24,8 @@ done
 # - speedtest-cli
 poetry install --directory "$HOME/.my/poetry" --no-root
 # poetry debug (delete)
-# rm -rf "$(poetry env list --full-path --directory "$HOME/.my/poetry" | grep -o '/.*')"
+# rm -rf "$(poetry env list --full-path --directory "./.my/poetry" | grep -o '/.*' | awk '{print $1}')"
+# rm -rf "$(poetry env list --full-path --directory "$HOME/.my/poetry" | grep -o '/.*' | awk '{print $1}')"
 
 ### Setup my nodejs
 # - aicommits
