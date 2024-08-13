@@ -14,7 +14,7 @@ fi
 # VENV_PATH=$(poetry env info --path --directory "$HOME/.my/poetry")
 VENV_PATH="$HOME/.cache/pypoetry/virtualenvs"
 for dir in "$VENV_PATH"/*/bin; do
-  [[ -d "$dir" && ":$PATH:" != *":$dir:"* ]] && PATH="$dir:$PATH"
+  [[ -d "$dir" && ":$PATH:" != *":$dir:"* ]] && PATH="$PATH:$dir" # Because mise has a higher priority than poetry.
 done
 
 # thefuck
