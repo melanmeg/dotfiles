@@ -1,7 +1,5 @@
 #!/bin/bash
 
 # ansible
-alias play='ansible-playbook --key-file ~/.ssh/main -i hosts site.yml'
-alias playc='ansible-playbook --key-file ~/.ssh/main -i hosts site.yml -C'
-alias pplay='ANSIBLE_FORKS=20 ansible-playbook --key-file ~/.ssh/main -i hosts site.yml'
-alias pplayc='ANSIBLE_FORKS=20 ansible-playbook --key-file ~/.ssh/main -i hosts site.yml -C'
+alias play="ansible-playbook -f 30 --key-file ~/.ssh/main -i hosts site.yml -e 'ansible_python_interpreter=/usr/bin/python3'"
+alias playc="ansible-playbook -f 30 --key-file ~/.ssh/main -i hosts site.yml -C -e 'ansible_python_interpreter=/usr/bin/python3'"
