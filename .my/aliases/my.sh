@@ -17,3 +17,7 @@ alias grepclean="grep -v -e '^\s*#' -e '^\s*$'" # grepclean [file]
 # cheat
 alias cheat='vim ~/.my/cheatsheet.sh'
 alias cheatvim='vim ~/.my/cheatsheet_vim.sh'
+
+# tcpdump
+alias mytcpdump='sudo tcpdump -ntq'
+# (e.g., tcpdump -A -t -n -i eth1 port 80 and host 192.168.11.11)

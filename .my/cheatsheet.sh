@@ -46,6 +46,8 @@ wdcp           : alias "watch docker-compose ps -a"
 dcall          : cycle docker-compose.
 drm, drmi      : all delete containers, images.
 deli           : all delete docker including cache.
+mytcpdump      : alias "sudo tcpdump -ntq"
+               : (e.g., tcpdump -A -t -n -i eth1 port 80 and host 192.168.11.11)
 
 #################################
 #   Develop                     #
