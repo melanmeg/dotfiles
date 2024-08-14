@@ -1,7 +1,7 @@
 FROM ubuntu:24.04
 
 # Init Setup
-RUN sed -i.bak -r 's!http://(security|archive).ubuntu.com/ubuntu!http://ftp.riken.go.jp/Linux/ubuntu!' /etc/apt/sources.list.d/ubuntu.sources
+RUN sed -i.bak -r 's!http://(security|archive|[a-z]{2}\.archive).ubuntu.com/ubuntu!http://ftp.riken.go.jp/Linux/ubuntu!' /etc/apt/sources.list.d/ubuntu.sources
 RUN apt upgrade -yU
 RUN apt purge -y needrestart
 RUN apt install -y git vim curl wget sudo
