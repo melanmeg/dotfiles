@@ -41,7 +41,7 @@ RUN USER=myuser HOME=/home/myuser \
 # RUN USER=myuser HOME=/home/myuser \
 #   ./dotfiles/.bin/install-recommended-vscode-extensions.sh
 RUN USER=myuser HOME=/home/myuser \
-  ./dotfiles/.bin/zsh_setup.sh
+  ./dotfiles/.bin/setup-zsh.sh
 
 # After zsh comands
 # $ zsh
