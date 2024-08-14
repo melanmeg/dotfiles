@@ -36,7 +36,7 @@ RUN USER=myuser HOME=/home/myuser \
 RUN USER=myuser HOME=/home/myuser \
   ./dotfiles/.bin/install-golang.sh
 RUN USER=myuser HOME=/home/myuser \
-  ./dotfiles/.bin/recommend_cli_install.sh
+  ./dotfiles/.bin/install-clis.sh
 # Dockerにcodeが入らなかったため.（そもそも不要まである）
 # RUN USER=myuser HOME=/home/myuser \
 #   ./dotfiles/.bin/install-recommended-vscode-extensions.sh

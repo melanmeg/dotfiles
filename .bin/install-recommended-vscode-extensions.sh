@@ -1,8 +1,8 @@
 #!/bin/bash
-set -euo pipefail
+set -euxo pipefail
 
 # Path to the extensions.json file
-EXTENSIONS_FILE="$HOM"/.vscode/extensions.json
+EXTENSIONS_FILE=../.vscode/extensions.json
 
 # Pre Install ShellCheck
 sudo apt install -y shfmt

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eux
 
 shell_setup() {
   echo "shell setup started."
