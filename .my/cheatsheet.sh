@@ -41,6 +41,7 @@ trivy          : vulnerability assessment tool.
 # Aliases
 tf             : alias "terraform"
 playc          : alias "ansible-playbook ... -C"
+               : (e.g., playc -D -l hoge1)
 dc             : alias "docker-compose"
 wdcp           : alias "watch docker-compose ps -a"
 dcall          : cycle docker-compose.
