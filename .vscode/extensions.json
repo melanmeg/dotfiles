@@ -9,6 +9,7 @@
     "eamodio.gitlens",
     "ecmel.vscode-html-css",
     "esbenp.prettier-vscode",
+    "fill-labs.dependi",
     "foxundermoon.shell-format",
     "golang.go",
     "infracost.infracost",
@@ -19,6 +20,7 @@
     "ms-python.black-formatter",
     "ms-python.flake8",
     "ms-python.isort",
+    "ms-vscode.js-debug-companion",
     "ms-vscode-remote.remote-containers",
     "ms-vscode-remote.remote-ssh",
     "ms-vscode-remote.vscode-remote-extensionpack",
@@ -28,7 +30,6 @@
     "redhat.vscode-yaml",
     "ritwickdey.liveserver",
     "rust-lang.rust-analyzer",
-    "serayuzgur.crates",
     "tamasfe.even-better-toml",
     "timonwong.shellcheck",
     "william-voyek.vscode-nginx"
