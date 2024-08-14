@@ -11,6 +11,8 @@
     "esbenp.prettier-vscode",
     "fill-labs.dependi",
     "foxundermoon.shell-format",
+    "github.copilot",
+    "github.copilot-chat",
     "golang.go",
     "infracost.infracost",
     "ms-azuretools.vscode-docker",
