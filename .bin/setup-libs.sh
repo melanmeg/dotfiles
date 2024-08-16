@@ -13,6 +13,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # Add docker Group
 sudo usermod -aG docker "$USER"
+# 権限が反映しない場合
+# newgrp docker
 
 
 # ================================
@@ -42,6 +44,8 @@ sudo groupadd -g 9010 ansible
 
 # Add ansible Group
 sudo usermod -aG ansible "$USER"
+# 権限が反映しない場合
+# newgrp ansible
 
 
 # ================================
