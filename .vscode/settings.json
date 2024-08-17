@@ -73,6 +73,11 @@
   "ansible.validation.lint.enabled": false,
 
   // ================================
+  // Github Copilot Settings
+  // ================================
+  "github.copilot.chat.localeOverride": "ja",
+
+  // ================================
   // Launguage Settings
   // ================================
   "files.associations": {
