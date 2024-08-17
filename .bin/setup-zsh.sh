@@ -32,8 +32,7 @@ shell_setup() {
 main() {
   shell_setup
   echo -e "\e[1;36m Setup completed!!!! \e[m"
-  zsh
-  peco --version
+  sudo chsh -s "$(which bash)" # change shell to bash
 }
 
 main "$@"
