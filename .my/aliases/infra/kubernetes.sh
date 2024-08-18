@@ -1,9 +1,9 @@
 #!/bin/bash
 
-### Uncomment out when using kubernetes.
-# source <(kubectl completion bash)
-# alias k='kubectl'
-# complete -F __start_kubectl k
+# shellcheck disable=SC1090
+source <(kubectl completion bash)
+alias k='kubectl'
+complete -F __start_kubectl k
 
 alias kcv='kubectl config view -o jsonpath='{.users[*].name}''
 alias kgn='kubectl get node -A'
