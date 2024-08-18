@@ -35,6 +35,7 @@
     "rust-lang.rust-analyzer",
     "tamasfe.even-better-toml",
     "timonwong.shellcheck",
+    "wholroyd.jinja",
     "william-voyek.vscode-nginx",
     "xadillax.viml"
   ]
