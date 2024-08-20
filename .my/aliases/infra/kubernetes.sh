@@ -5,7 +5,7 @@ source <(kubectl completion bash)
 alias k='kubectl'
 complete -F __start_kubectl k
 
-alias kcv='kubectl config view -o jsonpath='{.users[*].name}''
+alias kcv='kubectl config view -o jsonpath='\''{.users[*].name}'\'''
 alias kgn='kubectl get node -A'
 alias kgp='kubectl get pod -A'
 alias kgpw='kubectl get pod -A -o wide'

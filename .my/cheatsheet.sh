@@ -40,7 +40,7 @@ gcloud         : Google Cloud CLI.
 trivy          : vulnerability assessment tool.
 # Aliases
 tf             : alias "terraform"
-playc          : alias "ansible-playbook ... -C"
+playc          : alias "ansible-playbook --key-file ~/.ssh/... -i hosts site.yml -C"
                : (e.g., playc -D -l hoge1)
 dc             : alias "docker-compose"
 wdcp           : alias "watch docker-compose ps -a"
@@ -49,6 +49,8 @@ drm, drmi      : all delete containers, images.
 deli           : all delete docker including cache.
 mytcpdump      : alias "sudo tcpdump -ntq"
                : (e.g., tcpdump -A -t -n -i eth1 port 80 and host 192.168.11.11)
+# Survey
+lsof           : (e.g., lsof -i :10250)
 
 #################################
 #   Develop                     #
@@ -65,4 +67,5 @@ go-zero        : go-zero is a web and rpc framework with lots of builtin enginee
 # Aliases
 pyformat       : python formatter.
 getgotests     : go get gotests
+
 '
