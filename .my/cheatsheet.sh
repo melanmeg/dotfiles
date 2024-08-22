@@ -68,4 +68,13 @@ go-zero        : go-zero is a web and rpc framework with lots of builtin enginee
 pyformat       : python formatter.
 getgotests     : go get gotests
 
+#################################
+#   VSCode                      #
+#################################
+# Ctrl+Shift+P
+  Developer: Show Running Extensions
+    実行中の拡張機能の読み込み速度
+  Developer: Startup Performance
+    起動パフォーマンスのプロファイリング
+
 '
