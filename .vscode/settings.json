@@ -8,7 +8,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.detectIndentation": false,
   "editor.formatOnPaste": false,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.formatOnType": false,
   "editor.insertSpaces": true,
   "editor.minimap.enabled": false,
@@ -20,7 +20,7 @@
   "editor.renderWhitespace": "boundary",
   "editor.stickyTabStops": true,
   "editor.tabSize": 2,
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": true,
   "extensions.ignoreRecommendations": true,
   "telemetry.telemetryLevel": "off",
   "window.zoomLevel": -0.7,
@@ -29,6 +29,22 @@
   "workbench.editor.tabActionLocation": "left",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
+
+  // ================================
+  // Files Settings
+  // ================================
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/.hg/store/**": true,
+    "**": true
+  },
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.autoGuessEncoding": false,
 
   // ================================
   // Extension Settings
@@ -78,21 +94,28 @@
   "github.copilot.chat.localeOverride": "ja",
 
   // ================================
-  // Launguage Settings
+  // Language Associations
   // ================================
   "files.associations": {
-    // nginx
+    // .conf
     "default.conf": "nginx",
     "nginx.conf": "nginx",
-    // docker-compose
+    "nftables.conf": "nft",
+    // .yml, .yaml
     "docker-compose.yaml": "dockercompose",
     "compose.yaml": "dockercompose",
     "docker-compose.yml": "dockercompose",
     "compose.yml": "dockercompose",
-    // ansible
-    "*.yml": "ansible",
-    "*.yaml": "ansible"
+    "site.yml": "ansible",
+    "**/playbooks/*.yml": "ansible",
+    "**/tasks/*.yml": "ansible",
+    "*.yaml": "yaml",
+    "*.yml": "yaml",
   },
+
+  // ================================
+  // Launguage Settings
+  // ================================
   "[python]": {
     // "editor.defaultFormatter": "ms-python.autopep8",
     "editor.defaultFormatter": "ms-python.black-formatter",
@@ -102,47 +125,65 @@
     }
   },
   "[go]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
   },
   "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnSave": true
   },
   "[typescript]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
   },
   "[javascript]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
   },
   "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.formatOnSave": true,
   },
   "[NGINX]": {
     "editor.formatOnType": false
   },
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "edtor.formatOnSave": false
   },
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[hosts]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.formatOnSave": true,
   },
   "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
   },
   "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker",
+    "editor.formatOnSave": true,
   },
   "[dotenv]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.formatOnSave": true,
   },
   "[properties]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.formatOnSave": true,
   },
-  "[ssh_config]": {},
-  "[ansible-jinja]": {},
-  "[ansible]": {},
-  "[nft]": {},
-  "[jsonc]": {}
+  "[ssh_config]": {
+    "editor.formatOnSave": true,
+  },
+  "[ansible-jinja]": {
+    "editor.formatOnSave": true,
+  },
+  "[ansible]": {
+    "editor.formatOnSave": true,
+  },
+  "[nft]": {
+    "editor.formatOnSave": true,
+  },
 }
