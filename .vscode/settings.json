@@ -82,6 +82,9 @@
   "black-formatter.args": ["--line-length=100"],
   "flake8.args": ["--max-line-length=100"],
   "isort.args": ["--profile", "black"],
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingImports": "none"
+  },
 
   // ================================
   // Ansible Settings
