@@ -67,6 +67,30 @@ go-zero        : go-zero is a web and rpc framework with lots of builtin enginee
 # Aliases
 pyformat       : python formatter.
 getgotests     : go get gotests
+# Github CLI
+gh auth login  : login to github.
+gh repo create --public : create a public repository.
+gh repo delete --yes    : delete a repository.
+gh auth refresh -h github.com -s delete_repo : refresh token.
+gh repo list   : list repositories.
+gh repo view   : view repository.
+# create a new repository on CLI.
+  git init -q
+  git add -A
+  git commit -m "first commit"
+  git branch -M main
+  git remote add origin https://github.com/melanmeg/$repo_name.git
+  # check: git remote -v
+  git push -u origin main
+# an existing repository from CLI and not existing local.
+  git init -q
+  git add -A
+  git commit -m "hoge commit"
+  git branch -M hoge
+  git remote add origin https://github.com/melanmeg/$repo_name.git
+  git pull --no-rebase origin main --allow-unrelated-histories # or git pull --rebase origin main
+  # fix conflicts from VSCode -> git commit
+  git push
 
 #################################
 #   VSCode                      #
