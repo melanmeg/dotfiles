@@ -33,14 +33,13 @@ vhs          = 'latest'
 zoxide       = 'latest'
 
 [plugins]
-python = 'https://github.com/asdf-community/asdf-python'
 
 [settings]
 legacy_version_file = true
-legacy_version_file_disable_tools = ['python']
+legacy_version_file_disable_tools = ['']
 always_keep_download = false
 always_keep_install = false
-plugin_autoupdate_last_check_duration = '1 week'
+plugin_autoupdate_last_check_duration = '0'
 trusted_config_paths = ['~']
 verbose = false
 asdf_compat = false
@@ -51,9 +50,8 @@ yes = true
 not_found_auto_install = true
 task_output = "prefix"
 paranoid = false
-# shorthands_file = '~/.config/mise/shorthands.toml'
 disable_default_shorthands = false
 disable_tools = ['']
-env_file = '.env'
+env_file = '.env.mise'
 experimental = true
 status = { missing_tools = "if_other_versions_installed", show_env = false, show_tools = false }
