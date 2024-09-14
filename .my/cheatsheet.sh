@@ -38,6 +38,7 @@ aws            : AWS CLI.
 az             : Azure CLI.
 gcloud         : Google Cloud CLI.
 trivy          : vulnerability assessment tool.
+
 # Aliases
 tf             : alias "terraform"
 playc          : alias "ansible-playbook --key-file ~/.ssh/... -i hosts site.yml -C"
@@ -49,8 +50,17 @@ drm, drmi      : all delete containers, images.
 deli           : all delete docker including cache.
 mytcpdump      : alias "sudo tcpdump -ntq"
                : (e.g., tcpdump -A -t -n -i eth1 port 80 and host 192.168.11.11)
+mytrap         : alias, trap 'echo "+ $BASH_COMMAND"' DEBUG
+deltrap        : alias, trap '' DEBUG
+
 # Survey
-lsof           : (e.g., lsof -i :10250)
+lsof                                  : (e.g., lsof -i :10250)
+trap 'echo "+ $BASH_COMMAND"' DEBUG   : 以降のコマンドを標準出力
+trap -p                               : trap status check
+trap '' [1]*                          : trap delete ([1]* e.g., 0, 1, 2, DEBUG, SIGTERM, SIGUP)
+# すべてのトラップを削除ではなく、１個ずつの方が良さそう
+# trap '' 0 1 2 3 15  : Clear all traps
+
 # System Cache Commands
   mclear         : alias "sync; echo 3 | sudo tee /proc/sys/vm/drop_caches"
     # 1: ページキャッシュ 解放
