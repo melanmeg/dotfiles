@@ -29,3 +29,5 @@ Options:
   -h, --help              Print help
   -V, --version           Print version
 ```
+
+- font(0xProto): https://github.com/0xType/0xProto/blob/main/fonts/0xProto-Regular.ttf
