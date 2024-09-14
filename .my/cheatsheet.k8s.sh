@@ -17,6 +17,7 @@
   k get namespace -A
   k apply -k ./
   k describe
+  k delete all --all -n <namespace>
 # kubeadm
   kubeadm init
   kubeadm join
