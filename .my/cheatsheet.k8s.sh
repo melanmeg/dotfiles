@@ -25,6 +25,7 @@
   kubeadm token list
   kubeadm token delete
   kubeadm token create --print-join-command
+  # stdout: kubeadm join 192.168.11.110:8443 --token ey544l.7gvqjml99v08t5k9 --discovery-token-ca-cert-hash sha256:cfd36a88a78d469cf521998a4891a0317a75889f2e73c338ddbcba9dcee47754
   kubeadm reset
   kubeadm config migrate
   kubeadm config print
