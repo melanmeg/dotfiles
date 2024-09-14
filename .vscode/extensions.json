@@ -30,6 +30,7 @@
     "redhat.vscode-yaml",
     // "ritwickdey.liveserver",
     "rust-lang.rust-analyzer",
+    "shalldie.background",
     "tamasfe.even-better-toml",
     "timonwong.shellcheck",
     "wholroyd.jinja",

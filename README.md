@@ -30,4 +30,6 @@ Options:
   -V, --version           Print version
 ```
 
-- font(0xProto): https://github.com/0xType/0xProto/blob/main/fonts/0xProto-Regular.ttf
+## font
+- 0xProto: https://github.com/0xType/0xProto/blob/main/fonts/0xProto-Regular.ttf
+- source-han-code-jp: https://github.com/adobe-fonts/source-han-code-jp/releases/download/2.012R/SourceHanCodeJP.ttc
