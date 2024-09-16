@@ -23,5 +23,5 @@ alias mytcpdump='sudo tcpdump -ntq'
 # (e.g., tcpdump -A -t -n -i eth1 port 80 and host 192.168.11.11)
 
 # trap
-alias mytrap="trap 'echo \"$BASH_COMMAND\"' DEBUG"
+alias mytrap="trap 'echo \"\$BASH_COMMAND\"' DEBUG"
 alias deltrap="trap '' DEBUG"
