@@ -42,25 +42,18 @@ migrate        : configuration file migration.
                : (e.g., kubeadm config migrate --old-config ./join_kubeadm_cp.yaml --new-config ./new_join_kubeadm_cp.yaml)
 drain          : kubectl drain <node-name> --ignore-daemonsets --delete-local-data
 
-
-
-# tools
-
-
 #################################
-#   Develop                     #
+#   minikube                    #
 #################################
-# Language
-  Go, Java, Python, Perl, Zig, Rust,
-# JavaScript Runtime
-  Nodejs, Deno, Bun, farm
-# CLI tools
-poetry         : python package manager.
-pocketbase     : an open source Go backend.
-charming       : A Rust Visualization Library.
-go-zero        : go-zero is a web and rpc framework with lots of builtin engineering practices.
-# Aliases
-pyformat       : python formatter.
-getgotests     : go get gotests
+minikube start
+kubectl get po -A
+kubectl create deployment hello-minikube --image=kicbase/echo-server:1.0
+kubectl expose deployment hello-minikube --type=NodePort --port=8080
+kubectl port-forward service/hello-minikube 7080:8080 # http://localhost:7080/
+minikube stop
+minikube delete --all
+minikube addons list
+minikube config set memory 9001 # Change the default memory limit (requires a restart):
+minikube start -p aged --kubernetes-version=v1.16.1
 
 '
