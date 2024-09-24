@@ -18,6 +18,7 @@
   k apply -k ./
   k describe
   k delete all --all -n <namespace>
+  k describe nodes # 割り当て可能なメモリとリクエストの確認
 # kubeadm
   kubeadm init
   kubeadm join
