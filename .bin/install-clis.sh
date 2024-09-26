@@ -31,6 +31,9 @@ poetry install --directory "$HOME/.my/poetry" --no-root
 # - aicommits
 # .envにOPENAI_KEY=<your token>を設定
 npm i --prefix "$HOME/.my/nodejs"
+# nodejs ln
+sudo ln -s "$(which node | head -n 1)" /usr/local/bin/
+
 
 ### Setup apt install
 # - aria2
