@@ -26,6 +26,7 @@ python       = ['3.10.11', '3.11.9', '3.12.4']
 ripgrep      = 'latest'
 terraform    = ['1.9.2']
 trivy        = 'latest'
+vault        = 'latest'
 vhs          = 'latest'
 zoxide       = 'latest'
 

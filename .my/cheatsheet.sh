@@ -14,6 +14,23 @@ aria2          : The ultra fast download utility (e.g., aria2c -d /tmp -x 16 -s 
 gping          : Ping, but with a graph.
 
 #################################
+#   WSL                         #
+#################################
+wsl --install  : Install WSL.
+wsl -l -v      : List WSL.
+wsl            : Start WSL.
+wsl --shutdown : Shutdown WSL.
+
+sudo adduser melanmeg
+sudo usermod -aG sudo melanmeg
+
+\\wsl$\Ubuntu
+
+vim /etc/wsl.conf
+[network]
+hostname = wsl
+
+#################################
 #   CLI                         #
 #################################
 fuck           : a magnificent app.
