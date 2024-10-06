@@ -23,12 +23,21 @@ wsl --shutdown : Shutdown WSL.
 
 sudo adduser melanmeg
 sudo usermod -aG sudo melanmeg
+sudo visudo
+  melanmeg ALL=(ALL) NOPASSWD: ALL
 
-\\wsl$\Ubuntu
+share: \\wsl$\Ubuntu
 
-vim /etc/wsl.conf
+sudo vim /etc/wsl.conf
+[boot]
+systemd=true
+[automount]
+enable = false
+root = /home/melanmeg
 [network]
 hostname = wsl
+[user]
+default = melanmeg
 
 #################################
 #   CLI                         #

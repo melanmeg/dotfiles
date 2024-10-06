@@ -104,18 +104,19 @@ sudo chmod +x "$HOME/.local/bin/$PACKAGE_NAME"
 
 ### kubectl, helm, minikube
 # - kubectl
-KUBE_KEY_VERSION=v1.30
-sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gpg
-sudo mkdir -p /etc/apt/keyrings
-sudo chmod 755 /etc/apt/keyrings
-curl -fsSL https://pkgs.k8s.io/core:/stable:/${KUBE_KEY_VERSION}/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/${KUBE_KEY_VERSION}/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-sudo apt-get update
-sudo apt-get install -y kubectl
-# - helm
-curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
-# - minikube
-PACKAGE_NAME=minikube
-URL=https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-aria2c -d /tmp -x 16 -s 16 -k 1M -o "$PACKAGE_NAME" "$URL"
-sudo install /tmp/minikube /usr/local/bin/minikube
+sudo ln -s "$(which kubectl | head -n 1)" /usr/local/bin/
+# KUBE_KEY_VERSION=v1.30
+# sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gpg
+# sudo mkdir -p /etc/apt/keyrings
+# sudo chmod 755 /etc/apt/keyrings
+# curl -fsSL https://pkgs.k8s.io/core:/stable:/${KUBE_KEY_VERSION}/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+# echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/${KUBE_KEY_VERSION}/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+# sudo apt-get update
+# sudo apt-get install -y kubectl
+# # - helm
+# curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+# # - minikube
+# PACKAGE_NAME=minikube
+# URL=https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+# aria2c -d /tmp -x 16 -s 16 -k 1M -o "$PACKAGE_NAME" "$URL"
+# sudo install /tmp/minikube /usr/local/bin/minikube
