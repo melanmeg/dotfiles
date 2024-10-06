@@ -1,6 +1,9 @@
 #!/bin/bash
 set -eux
 
+#
+# ※ このスクリプトは、./dotfiles配下、以外のディレクトリで実行してください。
+#
 
 # ================================
 # Install Docker, dokcer-compose
@@ -52,14 +55,14 @@ sudo usermod -aG ansible "$USER"
 # Install mise
 # ================================
 
-# depend libs in mise
-sudo apt install -y unzip bzip2 # ffmpeg depend on gcc nasm yasm
+# # Often stuck for dependency. libs in mise
+sudo apt install -y unzip bzip2 nasm yasm gcc
 
 curl https://mise.run | sh
 
 function mise_cmd() {
   ~/.local/bin/mise i -y
-  # ~/.local/bin/mise use -gy azure-cli@latest
+  ~/.local/bin/mise use -y azure-cli@latest
 }
 
 for attempt in {1..3}; do

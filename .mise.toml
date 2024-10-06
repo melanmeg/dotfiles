@@ -14,7 +14,8 @@ duf          = 'latest'
 dust         = 'latest'
 exa          = 'latest'
 fd           = 'latest'
-ffmpeg       = 'latest' # dependencies nasm yasm gcc
+# ffmpeg is used with containers.
+# ffmpeg       = 'latest' # dependencies: nasm yasm gcc
 gcloud       = 'latest'
 helm         = 'latest'
 hyperfine    = 'latest'
