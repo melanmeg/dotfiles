@@ -21,14 +21,14 @@ wsl -l -v      : List WSL.
 wsl            : Start WSL.
 wsl --shutdown : Shutdown WSL.
 
-sudo adduser melanmeg
-sudo usermod -aG sudo melanmeg
-sudo visudo
+$ sudo adduser melanmeg
+$ sudo usermod -aG sudo melanmeg
+$ sudo visudo
   melanmeg ALL=(ALL) NOPASSWD: ALL
 
 share: \\wsl$\Ubuntu
 
-sudo vim /etc/wsl.conf
+$ sudo vim /etc/wsl.conf
 [boot]
 systemd=true
 [automount]
@@ -36,8 +36,16 @@ enable = false
 root = /home/melanmeg
 [network]
 hostname = wsl
+generateResolvConf = false
 [user]
 default = melanmeg
+
+$ sudo vim /etc/resolv.conf
+nameserver 8.8.8.8  # Google DNS
+nameserver 1.1.1.1  # Cloudflare DNS
+
+$ wsl --shutdown
+$ wsl
 
 #################################
 #   CLI                         #
