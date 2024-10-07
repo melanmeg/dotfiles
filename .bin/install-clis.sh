@@ -104,7 +104,7 @@ sudo chmod +x "$HOME/.local/bin/$PACKAGE_NAME"
 
 ### kubectl, helm, minikube
 # - kubectl
-sudo ln -s "$(which kubectl | head -n 1)" /usr/local/bin/
+sudo ln -s "$(which kubectl | head -n 1)" /usr/bin/
 # KUBE_KEY_VERSION=v1.30
 # sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gpg
 # sudo mkdir -p /etc/apt/keyrings
