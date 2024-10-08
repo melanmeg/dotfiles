@@ -40,9 +40,8 @@ generateResolvConf = false
 [user]
 default = melanmeg
 
-$ sudo vim /etc/resolv.conf
-nameserver 8.8.8.8  # Google DNS
-nameserver 1.1.1.1  # Cloudflare DNS
+$ sudo rm -f /etc/resolv.conf
+$ sudo echo 'nameserver 8.8.8.8 1.1.1.1' > /etc/resolv.conf
 
 $ wsl --shutdown
 $ wsl
