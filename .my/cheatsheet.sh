@@ -46,10 +46,9 @@ $ sudo echo 'nameserver 8.8.8.8 1.1.1.1' > /etc/resolv.conf
 $ wsl --shutdown
 $ wsl
 
-# VPN接続時にTLS接続できなくなる問題の回避策（恐らくPCにVPNセットアップの度に設定が必要）
-$ echo 'sudo ip link set eth0 mtu xxxx' >> ~/.bashrc
-  # mtu値はWindows側で以下コマンドで確認
-  $ netsh interface ipv4 show interfaces
+# VPN接続時にTLS接続できなくなる問題の回避策（wsl.confの[wsl2]では上手くいかなかった）
+# 「WSL Settings」アプリを開く > ネットワーク > ネットワークモード > Mirroredへ変更
+# 「WSL Settings」アプリを開く > ネットワーク > Hyper-Vファイアウォールが有効 > オフへ変更　（一応）
 
 #################################
 #   CLI                         #
