@@ -21,6 +21,7 @@ helm         = 'latest'
 hyperfine    = 'latest'
 java         = ['17.0.2']
 jq           = 'latest'
+k9s          = 'latest'
 kubectl      = 'latest'
 minikube     = 'latest'
 node         = ['20.15.1'] # 'lts'
