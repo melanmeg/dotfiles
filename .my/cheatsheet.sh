@@ -46,6 +46,11 @@ $ sudo echo 'nameserver 8.8.8.8 1.1.1.1' > /etc/resolv.conf
 $ wsl --shutdown
 $ wsl
 
+# VPN接続時にTLS接続できなくなる問題の回避策（恐らくPCにVPNセットアップの度に設定が必要）
+$ echo 'sudo ip link set eth0 mtu xxxx' >> ~/.bashrc
+  # mtu値はWindows側で以下コマンドで確認
+  $ netsh interface ipv4 show interfaces
+
 #################################
 #   CLI                         #
 #################################
