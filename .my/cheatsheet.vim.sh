@@ -6,8 +6,8 @@ sv    : length split     <C-d> : half screen down          <C-n>,<C-p> : complem
 - Move sh sj sk sl       <C-b> : screen up
 - Moveone sH sJ sK sL    <C-f> : screen down               v : (visual mode               )
                          u     : Undo                      V : (visual line mode          )
-<C-w> : length max_      <C-u> : Redo                      <C-v> : (visual block mode     )
-<C^w> : side max         w  : proceed to head of word      <C-v> : rectagle visual mode
+<C-w> : length max_      <C-u> : Redo                      <C-b> : (visual block mode     )
+<C^w> : side max         w  : proceed to head of word      <C-b> : rectagle visual mode
 so    : size fit         2w : head of two word             ---> <S-i> : insert mode in r v mode (left)
 s>    : width add        b  : return to head of word       ---> <S-a> : insert mode in r v mode (right)
 s<    : width reduce     e  : proceed to end of word       ---> $,(0,^) : insert mode in r v mode
