@@ -42,4 +42,4 @@ nnoremap <silent><S-CR> o<ESC>
 nnoremap <silent>j gj
 nnoremap <silent>k gk
 inoremap <C-f> <C-x><C-o>
-nnoremap <C-v> <Nop> " Disable Paste. Use <C-Shift-v> instead.
+nnoremap <C-b> <C-v>
