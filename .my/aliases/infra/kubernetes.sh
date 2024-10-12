@@ -1,9 +1,11 @@
 #!/bin/bash
 
 # shellcheck disable=SC1090
-source <(kubectl completion bash)
-alias k='kubectl'
-complete -F __start_kubectl k
+if command -v kubectl &> /dev/null; then
+  source <(kubectl completion bash)
+  alias k='kubectl'
+  complete -F __start_kubectl k
+fi
 
 alias kcv='kubectl config view -o jsonpath='\''{.users[*].name}'\'''
 alias kgn='kubectl get node -A'
