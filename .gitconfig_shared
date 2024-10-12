@@ -9,3 +9,5 @@
   plus-emph-style="bold 29 29"
   hunk-header-style="omit"
   line-numbers=true
+[pull]
+	rebase = true
