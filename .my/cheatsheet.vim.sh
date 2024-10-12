@@ -8,8 +8,8 @@ sv    : length split     <C-d> : half screen down          <C-n>,<C-p> : complem
                          u     : Undo                      V : (visual line mode          )
 <C-w> : length max_      <C-u> : Redo                      <C-b> : (visual block mode     )
 <C^w> : side max         w  : proceed to head of word      <C-b> : rectagle visual mode
-so    : size fit         2w : head of two word             ---> <S-i> : insert mode in r v mode (left)
-s>    : width add        b  : return to head of word       ---> <S-a> : insert mode in r v mode (right)
+so    : size fit         2w : head of two word             ---> <S-i> → [Esc] : insert mode in r v mode (left)
+s>    : width add        b  : return to head of word       ---> <S-a> → [Esc] : insert mode in r v mode (right)
 s<    : width reduce     e  : proceed to end of word       ---> $,(0,^) : insert mode in r v mode
 s+    : height add       ge : return to end of word            (to end of line,(head,head of not space))
 s-    : heigth reduce    ***W,B,E,gE                       ---> > : right shift in r v mode
