@@ -18,16 +18,21 @@ gping          : Ping, but with a graph.
 #################################
 wsl --install -d : Install WSL.
 wsl -l -v        : List WSL.
+wsl -s           : set default WSL.
 wsl              : Start WSL.
 wsl -t           : 指定したWSLを終了する。
 wsl --shutdown   : すべてのWSLを終了する。
 
-
 # 名称指定する場合
 wsl --install -d Ubuntu-24.04  # このVMで初期設定を済ます
+wsl -t Ubuntu-24.04
 wsl --export Ubuntu-24.04 C:\myroot\my-ubuntu-2404.tar
 wsl --unregister Ubuntu-24.04
-wsl --import myUbuntu C:\myroot\wsldata my-ubuntu-2404.tar
+wsl --import myUbuntu1 C:\myroot\wsldata my-ubuntu-2404.tar
+
+# 1. 作業中、WSLの起動は１つが良い
+# 2. 選択中のWSLのみにDockerDesktopが適用されていそう
+# 3. 両方の再起動繰り返していくと、上手くいく
 
 $ sudo adduser melanmeg
 $ sudo usermod -aG sudo melanmeg
