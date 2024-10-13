@@ -16,10 +16,18 @@ gping          : Ping, but with a graph.
 #################################
 #   WSL                         #
 #################################
-wsl --install  : Install WSL.
-wsl -l -v      : List WSL.
-wsl            : Start WSL.
-wsl --shutdown : Shutdown WSL.
+wsl --install -d : Install WSL.
+wsl -l -v        : List WSL.
+wsl              : Start WSL.
+wsl -t           : 指定したWSLを終了する。
+wsl --shutdown   : すべてのWSLを終了する。
+
+
+# 名称指定する場合
+wsl --install -d Ubuntu-24.04  # このVMで初期設定を済ます
+wsl --export Ubuntu-24.04 C:\myroot\my-ubuntu-2404.tar
+wsl --unregister Ubuntu-24.04
+wsl --import myUbuntu C:\myroot\wsldata my-ubuntu-2404.tar
 
 $ sudo adduser melanmeg
 $ sudo usermod -aG sudo melanmeg
@@ -30,7 +38,7 @@ share: \\wsl$\Ubuntu
 
 $ sudo vim /etc/wsl.conf
 [boot]
-systemd=true
+systemd = true
 [automount]
 enable = false
 root = /home/melanmeg
@@ -39,6 +47,12 @@ hostname = wsl
 generateResolvConf = false
 [user]
 default = melanmeg
+[wsl2]  # 今のところ機能しないが、将来を見据えて一応記載
+networkingMode = mirrored
+firewall = false
+autoProxy = true
+dnsTunneling = true
+dnsProxy = true
 
 $ sudo rm -f /etc/resolv.conf
 $ sudo echo 'nameserver 8.8.8.8 1.1.1.1' > /etc/resolv.conf
@@ -48,7 +62,7 @@ $ wsl
 
 # VPN接続時にTLS接続できなくなる問題の回避策（wsl.confの[wsl2]では上手くいかなかった）
 # 「WSL Settings」アプリを開く > ネットワーク > ネットワークモード > Mirroredへ変更
-# 「WSL Settings」アプリを開く > ネットワーク > Hyper-Vファイアウォールが有効 > オフへ変更　（一応）
+# 「WSL Settings」アプリを開く > ネットワーク > Hyper-Vファイアウォールが有効 > オフへ変更
 
 #################################
 #   CLI                         #
@@ -89,6 +103,11 @@ mytcpdump      : alias "sudo tcpdump -ntq"
                : (e.g., tcpdump -A -t -n -i eth1 port 80 and host 192.168.11.11)
 mytrap         : alias, trap 'echo "+ $BASH_COMMAND"' DEBUG
 deltrap        : alias, trap '' DEBUG
+
+# history
+export HISTTIMEFORMAT="%F %T "
+history -w
+cat ~/.bash_history
 
 # Survey
 lsof                                  : (e.g., lsof -i :10250)
