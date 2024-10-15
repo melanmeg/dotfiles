@@ -187,6 +187,9 @@ gh repo view   : view repository.
   git pull --no-rebase origin main --allow-unrelated-histories # or git pull --rebase origin main
   # fix conflicts from VSCode -> git commit
   git push
+  # git
+  git pull --merge  # コンフリクト時、先にローカルの変更を取り込む？
+  git pull --rebase  # コンフリクト時、先にリモートの変更を取り込む？
 
 #################################
 #   VSCode                      #
