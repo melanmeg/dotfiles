@@ -50,3 +50,7 @@ fi
 if [[ ":$PATH:" != *":$GOPATH/bin:"* ]]; then
   export PATH=$GOPATH/bin:$PATH
 fi
+
+# GPG
+GPG_TTY=$(tty)
+export GPG_TTY

@@ -148,6 +148,23 @@ trap '' [1]*                          : trap delete ([1]* e.g., 0, 1, 2, DEBUG, 
       printf "%-20s %10.2f GB\n", $1, $2 / 1024 / 1024
   }' /proc/meminfo
 
+# GPG
+gpg --pinentry-mode loopback --passphrase passwd --quick-gen-key "melanmeg <example@example.com>" default default 0
+gpg --list-keys
+gpg --delete-key "melanmeg (test) <example@example.com>"
+gpg --delete-secret-key "melanmeg (test) <example@example.com>"
+# sops
+sops -e test.yaml > test.enc.yaml
+sops -d test.enc.yaml > test.dec.yaml
+gcloud kms keyrings create sops --location global
+gcloud kms keys create sops-key --location global --keyring sops --purpose encryption
+gcloud kms keys list --location global --keyring sops
+sops -e --gcp-kms projects/PROJECT_ID/locations/global/keyRings/sops/cryptoKeys/sops-key test.yaml > test.enc.yaml
+sops -d test.enc.yaml > test.dec.yaml
+# .sops.yaml
+# creation_rules:
+#   - pgp: "32FDE15D2580AAB6242FDF74464639D09000866C"
+
 #################################
 #   Develop                     #
 #################################
