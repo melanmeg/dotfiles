@@ -28,6 +28,7 @@ minikube     = 'latest'
 node         = ['20.15.1'] # 'lts'
 # perl         = ['5.40.0']
 poetry       = 'latest'
+pre-commit   = 'latest'
 python       = ['3.10.11', '3.11.9', '3.12.4']
 ripgrep      = 'latest'
 sops         = 'latest'
