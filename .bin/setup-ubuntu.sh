@@ -9,7 +9,7 @@ ubuntu_setup() {
   sudo systemctl restart rsyslog
   # mirror set riken
   sudo sed -i.bak -r 's!http://(security|us.archive).ubuntu.com/ubuntu!http://ftp.riken.jp/Linux/ubuntu!' /etc/apt/sources.list
-  sudo apt update -y && apt upgrade -y
+  sudo apt update -y && sudo apt upgrade -y
   # set inputrc
   sudo echo "set bell-style none" | sudo tee -a /etc/inputrc
 }
