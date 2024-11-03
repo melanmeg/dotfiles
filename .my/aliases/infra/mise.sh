@@ -12,7 +12,6 @@ fi
 if [ "$RUST_CLI_ALIAS" = "true" ]; then
   alias du='dust'
   alias cat='bat'
-  alias ls='exa'
   alias find='fd'
   alias df='duf'
   alias ps='procs'

@@ -120,3 +120,11 @@ sudo ln -s "$(which kubectl | head -n 1)" /usr/bin/
 # URL=https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 # aria2c -d /tmp -x 16 -s 16 -k 1M -o "$PACKAGE_NAME" "$URL"
 # sudo install /tmp/minikube /usr/local/bin/minikube
+
+
+### Install sops because of not to use mise.
+# - sops
+SOPS_VERSION=3.9.1
+curl -LO https://github.com/getsops/sops/releases/download/v$SOPS_VERSION/sops-v$SOPS_VERSION.linux.amd64
+mv sops-v$SOPS_VERSION.linux.amd64 /usr/local/bin/sops
+chmod +x /usr/local/bin/sops

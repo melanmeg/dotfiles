@@ -4,7 +4,6 @@
 #################################
 dust           : like a du.
 bat            : like a cat.
-exa            : like a ls.
 fd             : like a find.
 procs          : like a ps.
 bottom         : like a top.
