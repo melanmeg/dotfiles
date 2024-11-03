@@ -7,7 +7,9 @@ az account show                 : Azure CLI auth list.
 gcloud auth list                : Google Cloud CLI auth list.
 
 # mise
-mise doctor : syntax check.
+mise doctor         : syntax check.
+mise up             : all update mise.
+mise self-update -y : self update mise.
 
 #################################
 #   Aliases                     #
