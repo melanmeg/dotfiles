@@ -126,5 +126,5 @@ sudo ln -s "$(which kubectl | head -n 1)" /usr/bin/
 # - sops
 SOPS_VERSION=3.9.1
 curl -LO https://github.com/getsops/sops/releases/download/v$SOPS_VERSION/sops-v$SOPS_VERSION.linux.amd64
-mv sops-v$SOPS_VERSION.linux.amd64 /usr/local/bin/sops
-chmod +x /usr/local/bin/sops
+sudo mv sops-v$SOPS_VERSION.linux.amd64 /usr/local/bin/sops
+sudo chmod +x /usr/local/bin/sops
