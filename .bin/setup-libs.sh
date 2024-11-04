@@ -26,8 +26,9 @@ sudo usermod -aG docker "$USER"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # depend
-sudo apt install -y build-essential
+sudo apt install -y build-essential gcc-aarch64-linux-gnu
 ~/.cargo/bin/rustup target add x86_64-unknown-linux-musl
+~/.cargo/bin/rustup target add aarch64-unknown-linux-musl
 
 
 # ================================
