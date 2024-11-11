@@ -49,7 +49,7 @@ zoxide         = 'latest'
 
 [settings]
 legacy_version_file = true
-legacy_version_file_disable_tools = ['']
+legacy_version_file_disable_tools = ['terraform']  # parse-legacy-fileがrequired_versionパラメータのパースができなくてエラーとなるため回避
 always_keep_download = false
 always_keep_install = false
 plugin_autoupdate_last_check_duration = '0'
