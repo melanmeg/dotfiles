@@ -12,7 +12,7 @@ alias tfr='terraform refresh -state=.terraform/state.tfstate'
 
 # gcloud
 function gcloudlogin() {
-  # gcloud auth login --update-adc
+  gcloud auth login --update-adc
   gcloud auth application-default login
 }
 
