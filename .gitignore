@@ -86,3 +86,4 @@
 !/.mise.toml
 !/.env.sample
 !/.vimrc
+!/.tool-versions
