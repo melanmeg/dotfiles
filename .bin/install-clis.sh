@@ -128,3 +128,7 @@ SOPS_VERSION=3.9.1
 curl -LO https://github.com/getsops/sops/releases/download/v$SOPS_VERSION/sops-v$SOPS_VERSION.linux.amd64
 sudo mv sops-v$SOPS_VERSION.linux.amd64 /usr/local/bin/sops
 sudo chmod +x /usr/local/bin/sops
+
+### Install other plugins
+gcloud components install gke-gcloud-auth-plugin
+helm plugin install https://github.com/jkroepke/helm-secrets --version v4.6.2
