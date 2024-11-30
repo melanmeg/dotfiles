@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "4ops.terraform",
+    "bmarkovic.haproxy",
     "coolbear.systemd-unit-file",
     "dbaeumer.vscode-eslint",
     "donjayamanne.githistory",

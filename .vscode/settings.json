@@ -131,6 +131,10 @@
     "**/tasks/*.yml": "ansible",
     "*.yaml": "yaml",
     "*.yml": "yaml",
+    // .j2
+    "*.j2": "ansible-jinja",
+    // .cfg
+    "*.cfg": "haproxy"
   },
 
   // ================================
