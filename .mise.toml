@@ -27,6 +27,7 @@ jq             = 'latest'
 k9s            = 'latest'
 ksops          = 'latest'
 kubectl        = 'latest'
+mc             = 'latest'
 minikube       = 'latest'
 node           = ['20.15.1'] # 'lts'
 # perl           = ['5.40.0']
