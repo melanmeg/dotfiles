@@ -17,6 +17,6 @@ function gcloudlogin() {
 }
 
 function gcloudset() {
-  gcloud config set account my-user@gcp.org.melanmeg.com
+  gcloud config set account naoya05280708@gmail.com
   gcloud config set project test-project-373118
 }
