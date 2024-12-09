@@ -39,7 +39,7 @@ sudo apt install -y build-essential gcc-aarch64-linux-gnu
 #    : https://ansible.readthedocs.io/projects/lint/installing/#installing-the-latest-version
 sudo apt install -y pipx
 pipx install --include-deps ansible
-pipx install -y ansible-core ansible-lint
+pipx install ansible-core ansible-lint
 # Upgrading
 # pipx upgrade --include-injected ansible
 
