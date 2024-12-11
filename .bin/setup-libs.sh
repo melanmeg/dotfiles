@@ -38,10 +38,16 @@ sudo apt install -y build-essential gcc-aarch64-linux-gnu
 # ref: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-and-upgrading-ansible-with-pipx
 #    : https://ansible.readthedocs.io/projects/lint/installing/#installing-the-latest-version
 sudo apt install -y pipx
-pipx install --include-deps ansible
-pipx install ansible-core ansible-lint
+pipx install ansible-core==2.17.7
+pipx install --include-deps ansible==11.1.0
+pipx install ansible-lint==24.12.1
 # Upgrading
 # pipx upgrade --include-injected ansible
+
+# Mitogen
+curl -Lo /tmp/mitogen-0.3.8.tar.gz https://files.pythonhosted.org/packages/source/m/mitogen/mitogen-0.3.8.tar.gz
+sudo tar zxvf /tmp/mitogen-0.3.8.tar.gz -C /opt/
+rm -f /tmp/mitogen-0.3.8.tar.gz
 
 # create ansible Group
 sudo groupadd -g 9010 ansible
