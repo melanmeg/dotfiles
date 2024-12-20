@@ -9,12 +9,6 @@
 # MY_GCLOUD_REGION       = "asia-northeast1"
 # MY_GCLOUD_ZONE         = "asia-northeast1-a"
 
-# [hooks]
-# leave = [
-#   "echo 'Bye, switch default profile.'",
-#   "gcloud config configurations activate default",
-# ]
-
 # [hooks.enter]
 # shell = "bash"
 # script = "source ~/.my/switch_cloud/switch.sh ~/.my/switch_cloud"

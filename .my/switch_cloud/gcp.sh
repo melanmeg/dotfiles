@@ -26,7 +26,7 @@ function gcloud_application_login_check() {
     echo "$output" 2>&1
     echo "Please application login to gcloud."
     gcloud auth application-default login
-    # gcloud auth application-default revoke
+    # gcloud auth application-default revoke --quiet
   else
     echo "Application login is ok."
   fi
@@ -34,12 +34,12 @@ function gcloud_application_login_check() {
 
 # gcloud config set
 function gcloud_config_set() {
-  gcloud config configurations list
-  gcloud config configurations create "$PROFILE_NAME"
-  gcloud config set account "$ACCOUNT_NAME"
-  gcloud config set project "$PROJECT_ID"
-  gcloud config set compute/region "$RIGION"
-  gcloud config set compute/zone "$ZONE"
+  gcloud config configurations create "$PROFILE_NAME" > /dev/null 2>&1
+  gcloud config set account "$ACCOUNT_NAME" > /dev/null 2>&1
+  gcloud config set project "$PROJECT_ID" > /dev/null 2>&1
+  gcloud config set compute/region "$RIGION" > /dev/null 2>&1
+  gcloud config set compute/zone "$ZONE" > /dev/null 2>&1
+  # gcloud config configurations delete "$PROFILE_NAME" --quiet
 }
 
 
@@ -51,13 +51,25 @@ function gcloud_config_set_check() {
   if [[ -z "$TARGET_PROFILE" ]]; then
     echo "Not found profile: $PROFILE_NAME"
     gcloud_config_set
+    echo "Please application login to gcloud."
+    gcloud auth application-default login --quiet
+    gcloud config set account "$ACCOUNT_NAME" > /dev/null 2>&1
+    gcloud config set project "$PROJECT_ID" > /dev/null 2>&1
+
+    return
   else
     echo "Found profile is $PROFILE_NAME"
   fi
 
   if [[ "$ACTIVE_PROFILE" != "$PROFILE_NAME" ]]; then
+    gcloud config set account "$ACCOUNT_NAME" > /dev/null 2>&1
+    gcloud config set project "$PROJECT_ID" > /dev/null 2>&1
+    echo "Please application login to gcloud."
+    gcloud auth application-default login
     echo "Active profile is not $PROFILE_NAME"
-    gcloud config configurations activate "$PROFILE_NAME"
+    gcloud config configurations activate "$PROFILE_NAME" > /dev/null 2>&1
+    gcloud config set account "$ACCOUNT_NAME" > /dev/null 2>&1
+    gcloud config set project "$PROJECT_ID" > /dev/null 2>&1
   else
     echo "Active profile is $PROFILE_NAME"
   fi
@@ -69,8 +81,8 @@ function main() {
   printf "\n"
   echo "Check configure gcloud."
   gcloud_login_check
-  gcloud_application_login_check
   gcloud_config_set_check
+  gcloud_application_login_check
   printf "\n"
   echo Done.
 }
