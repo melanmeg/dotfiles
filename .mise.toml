@@ -1,8 +1,6 @@
-[env]
-NODE_ENV = 'development'
-NPM_CONFIG_PREFIX = '~/.npm-global'
-
+# ########################################################
 # Set file '.mise.local.toml' in root project directory.
+
 # [env]
 # MY_SET_CLOUD_BENDER    = "gcp"
 # MY_GCLOUD_PROFILE_NAME = "test-project"
@@ -11,15 +9,15 @@ NPM_CONFIG_PREFIX = '~/.npm-global'
 # MY_GCLOUD_REGION       = "asia-northeast1"
 # MY_GCLOUD_ZONE         = "asia-northeast1-a"
 
-[hooks]
-leave = [
-  "echo 'Bye, switch default profile.'",
-  "gcloud config configurations activate default",
-]
+# [hooks]
+# leave = [
+#   "echo 'Bye, switch default profile.'",
+#   "gcloud config configurations activate default",
+# ]
 
-[hooks.enter]
-shell = "bash"
-script = "source ~/.my/switch_cloud/swich.sh"
+# [hooks.enter]
+# shell = "bash"
+# script = "source ~/.my/switch_cloud/switch.sh"
 
 # [[watch_files]]
 # patterns = [".mise.toml", ".tool-versions"]
@@ -28,6 +26,11 @@ script = "source ~/.my/switch_cloud/swich.sh"
 # [[watch_files]]
 # patterns = ["package.json"]
 # run = "npm i -y"
+# ##########################################################
+
+[env]
+NODE_ENV = 'development'
+NPM_CONFIG_PREFIX = '~/.npm-global'
 
 [tools]
 awscli         = 'latest'
