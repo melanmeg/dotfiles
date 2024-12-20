@@ -17,7 +17,7 @@
 
 # [hooks.enter]
 # shell = "bash"
-# script = "source ~/.my/switch_cloud/switch.sh"
+# script = "source ~/.my/switch_cloud/switch.sh ~/.my/switch_cloud"
 
 # [[watch_files]]
 # patterns = [".mise.toml", ".tool-versions"]
