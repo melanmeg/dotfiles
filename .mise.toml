@@ -21,9 +21,9 @@ leave = [
 shell = "bash"
 script = "source ~/.my/switch_cloud/swich.sh"
 
-[[watch_files]]
-patterns = [".mise.toml", ".tool-versions"]
-run = "mise i -y"
+# [[watch_files]]
+# patterns = [".mise.toml", ".tool-versions"]
+# run = "mise i -y"
 
 # [[watch_files]]
 # patterns = ["package.json"]
