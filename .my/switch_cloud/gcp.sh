@@ -6,6 +6,10 @@ PROJECT_ID=$MY_GCP_PROJECT_ID
 RIGION=$MY_GCP_REGION
 ZONE=$MY_GCP_ZONE
 
+CREDENTIALS_FILE="$HOME/.config/gcloud/application_default_credentials.json"
+CREDENTIALS_DIR="$HOME/.config/gcloud/tmp_credentials"
+TMP_CREDENTIALS_FILE="$CREDENTIALS_DIR/$PROFILE_NAME.json"
+
 # gcloud auth login
 function gcloud_login_check() {
   account_list=$(gcloud auth list --format="value(account, status)")
@@ -42,7 +46,6 @@ function gcloud_config_set() {
   # gcloud config configurations delete "$PROFILE_NAME" --quiet
 }
 
-
 function gcloud_config_set_check() {
   CONFIG_LIST=$(gcloud config configurations list)
   TARGET_PROFILE=$(echo "$CONFIG_LIST" | awk '{print $1}' | grep "$PROFILE_NAME")
@@ -62,21 +65,45 @@ function gcloud_config_set_check() {
   fi
 
   if [[ "$ACTIVE_PROFILE" != "$PROFILE_NAME" ]]; then
-    gcloud config set account "$ACCOUNT_NAME" > /dev/null 2>&1
-    gcloud config set project "$PROJECT_ID" > /dev/null 2>&1
-    echo "Please application login to gcloud."
-    gcloud auth application-default login
     echo "Active profile is not $PROFILE_NAME"
-    gcloud config configurations activate "$PROFILE_NAME" > /dev/null 2>&1
-    gcloud config set account "$ACCOUNT_NAME" > /dev/null 2>&1
-    gcloud config set project "$PROJECT_ID" > /dev/null 2>&1
+    gcloud_credentials_set_check
   else
     echo "Active profile is $PROFILE_NAME"
   fi
 }
 
+function gcloud_credentials_set() {
+  cp -a "$CREDENTIALS_FILE" "$TMP_CREDENTIALS_FILE"
+  ln -sf "$TMP_CREDENTIALS_FILE" "$CREDENTIALS_FILE"
+}
+
+function gcloud_credentials_set_check() {
+  if [ ! -d "$CREDENTIALS_DIR" ]; then
+    mkdir -p "$CREDENTIALS_DIR"
+  fi
+
+  rm -f "$CREDENTIALS_FILE" # remove symbolic link
+
+  if [ -e "$TMP_CREDENTIALS_FILE" ]; then
+    echo "$FILE_PATH File exists."
+    ln -s "$TMP_CREDENTIALS_FILE" "$CREDENTIALS_FILE"
+    gcloud config configurations activate "$PROFILE_NAME" > /dev/null 2>&1
+  else
+    echo "$FILE_PATH File does not exist."
+    gcloud config configurations activate "$PROFILE_NAME" > /dev/null 2>&1
+    gcloud config set account "$ACCOUNT_NAME" > /dev/null 2>&1
+    gcloud config set project "$PROJECT_ID" > /dev/null 2>&1
+
+    echo "Please application login to gcloud."
+    gcloud auth application-default login
+
+    gcloud_credentials_set
+  fi
+}
+
 # main
 function main() {
+  gcloud config configurations list
   echo "Enter Project: $PROJECT_ID"
   printf "\n"
   echo "Check configure gcloud."
@@ -84,6 +111,7 @@ function main() {
   gcloud_config_set_check
   gcloud_application_login_check
   printf "\n"
+  gcloud config configurations list
   echo Done.
 }
 
