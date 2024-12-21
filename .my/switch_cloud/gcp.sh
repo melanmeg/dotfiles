@@ -15,12 +15,12 @@ function gcloud_login_check() {
   account_list=$(gcloud auth list --format="value(account, status)")
 
   if ! echo "${account_list}" | grep -q "^${ACCOUNT_NAME}[[:space:]]*\*"; then
-    echo "Account: $ACCOUNT_NAME is not active."
+    echo " Account: $ACCOUNT_NAME is not active."
     echo "Please login to gcloud."
     gcloud auth login
     # gcloud auth revoke $ACCOUNT_NAME
   else
-    echo "Account $ACCOUNT_NAME is active."
+    echo " Account $ACCOUNT_NAME is active."
   fi
 }
 
@@ -28,7 +28,7 @@ function gcloud_login_check() {
 function gcloud_application_login_check() {
   if ! output=$(timeout 3 gcloud auth application-default print-access-token 2>&1); then
     echo "$output" 2>&1
-    echo "Application login Failed."
+    echo " Application login Failed."
 
     rm -f "$CREDENTIALS_FILE" "$TMP_CREDENTIALS_FILE" # remove symbolic link and file
 
@@ -36,10 +36,10 @@ function gcloud_application_login_check() {
     gcloud auth application-default login
     # gcloud auth application-default revoke --quiet
 
-    echo "Update credentials file."
+    echo " Update credentials file."
     gcloud_credentials_set
   else
-    echo "Application login is ok."
+    echo " Application login is ok."
   fi
 }
 
@@ -59,7 +59,7 @@ function gcloud_config_set_check() {
   ACTIVE_PROFILE=$(echo "$CONFIG_LIST" | grep 'True' | awk '{print $1}')
 
   if [[ -z "$TARGET_PROFILE" ]]; then
-    echo "Not found profile: $PROFILE_NAME"
+    echo " Not found profile: $PROFILE_NAME"
     rm -f "$CREDENTIALS_FILE" # remove symbolic link
     gcloud_config_set
     echo "Please application login to gcloud."
@@ -69,14 +69,14 @@ function gcloud_config_set_check() {
 
     return
   else
-    echo "Found profile is $PROFILE_NAME"
+    echo " Found profile is $PROFILE_NAME"
   fi
 
   if [[ "$ACTIVE_PROFILE" != "$PROFILE_NAME" ]]; then
-    echo "Active profile is not $PROFILE_NAME"
+    echo " Active profile is not $PROFILE_NAME"
     gcloud_credentials_set_check
   else
-    echo "Active profile is $PROFILE_NAME"
+    echo " Active profile is $PROFILE_NAME"
   fi
 }
 
@@ -93,11 +93,11 @@ function gcloud_credentials_set_check() {
   rm -f "$CREDENTIALS_FILE" # remove symbolic link
 
   if [ -e "$TMP_CREDENTIALS_FILE" ]; then
-    echo "$FILE_PATH File exists."
+    echo " $TMP_CREDENTIALS_FILE File exists."
     ln -s "$TMP_CREDENTIALS_FILE" "$CREDENTIALS_FILE"
     gcloud config configurations activate "$PROFILE_NAME" > /dev/null 2>&1
   else
-    echo "$FILE_PATH File does not exist."
+    echo " $TMP_CREDENTIALS_FILE File does not exist."
     gcloud config configurations activate "$PROFILE_NAME" > /dev/null 2>&1
     gcloud config set account "$ACCOUNT_NAME" > /dev/null 2>&1
     gcloud config set project "$PROJECT_ID" > /dev/null 2>&1
@@ -111,7 +111,6 @@ function gcloud_credentials_set_check() {
 
 # main
 function main() {
-  gcloud config configurations list
   echo "Enter Project: $PROJECT_ID"
   printf "\n"
   echo "Check configure gcloud."
@@ -120,6 +119,7 @@ function main() {
   gcloud_application_login_check
   printf "\n"
   gcloud config configurations list
+  printf "\n"
   echo Done.
 }
 
