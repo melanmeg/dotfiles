@@ -20,9 +20,11 @@ function gcloud_login_check() {
 
   if ! echo "${account_list}" | grep -q "^${ACCOUNT_NAME}[[:space:]]*\*"; then
     echo " Account: $ACCOUNT_NAME is not active."
+    printf "\n"
     echo "Please login to gcloud."
     gcloud auth login
     # gcloud auth revoke $ACCOUNT_NAME
+    printf "\n"
   else
     echo " Account $ACCOUNT_NAME is active."
   fi
