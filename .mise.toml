@@ -2,13 +2,13 @@
 # Set file '.mise.local.toml' in root project directory.
 
 # [env]
-# MY_SET_CLOUD_BENDER    = "gcp"
+# MY_SET_CLOUD_BENDER = "gcp"
 # MY_GCP_PROFILE_NAME = "test-project"
 # MY_GCP_ACCOUNT_NAME = "my-user@gcp.org.melanmeg.com"
 # MY_GCP_PROJECT_ID   = "test-project-373118"
 # MY_GCP_REGION       = "asia-northeast1"
 # MY_GCP_ZONE         = "asia-northeast1-a"
-# SCRIPT_DIR = "~/.my/switch_cloud"
+# SCRIPT_DIR          = "~/.my/switch_cloud"
 
 # [hooks.enter]
 # shell = "bash"
