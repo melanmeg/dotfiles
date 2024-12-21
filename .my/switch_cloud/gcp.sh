@@ -28,9 +28,16 @@ function gcloud_login_check() {
 function gcloud_application_login_check() {
   if ! output=$(timeout 3 gcloud auth application-default print-access-token 2>&1); then
     echo "$output" 2>&1
+    echo "Application login Failed."
+
+    rm -f "$CREDENTIALS_FILE" "$TMP_CREDENTIALS_FILE" # remove symbolic link and file
+
     echo "Please application login to gcloud."
     gcloud auth application-default login
     # gcloud auth application-default revoke --quiet
+
+    echo "Update credentials file."
+    gcloud_credentials_set
   else
     echo "Application login is ok."
   fi
@@ -53,6 +60,7 @@ function gcloud_config_set_check() {
 
   if [[ -z "$TARGET_PROFILE" ]]; then
     echo "Not found profile: $PROFILE_NAME"
+    rm -f "$CREDENTIALS_FILE" # remove symbolic link
     gcloud_config_set
     echo "Please application login to gcloud."
     gcloud auth application-default login --quiet
