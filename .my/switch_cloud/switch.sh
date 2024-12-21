@@ -1,7 +1,5 @@
 #!/bin/bash
 
-SCRIPT_DIR=$1
-
 if [ "$MY_SET_CLOUD_BENDER" == "gcp" ]; then
     echo "This is a GCP environment."
     bash "$SCRIPT_DIR/gcp.sh"

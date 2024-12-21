@@ -3,15 +3,16 @@
 
 # [env]
 # MY_SET_CLOUD_BENDER    = "gcp"
-# MY_GCLOUD_PROFILE_NAME = "test-project"
-# MY_GCLOUD_ACCOUNT_NAME = "my-user@gcp.org.melanmeg.com"
-# MY_GCLOUD_PROJECT_ID   = "test-project-373118"
-# MY_GCLOUD_REGION       = "asia-northeast1"
-# MY_GCLOUD_ZONE         = "asia-northeast1-a"
+# MY_GCP_PROFILE_NAME = "test-project"
+# MY_GCP_ACCOUNT_NAME = "my-user@gcp.org.melanmeg.com"
+# MY_GCP_PROJECT_ID   = "test-project-373118"
+# MY_GCP_REGION       = "asia-northeast1"
+# MY_GCP_ZONE         = "asia-northeast1-a"
+# SCRIPT_DIR = "~/.my/switch_cloud"
 
 # [hooks.enter]
 # shell = "bash"
-# script = "source ~/.my/switch_cloud/switch.sh ~/.my/switch_cloud"
+# script = "source ~/.my/switch_cloud/switch.sh"
 
 # [[watch_files]]
 # patterns = [".mise.toml", ".tool-versions"]
