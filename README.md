@@ -15,19 +15,26 @@ git config --global user.name "Your Name"
 git config --global credential.helper store
 ```
 
+- Install: https://github.com/melanmeg/dotsrepl
+
 ```bash
-$ ./dotfiles -h
+$ dotsrepl -h
 Rust CLI for Dotfiles.
 
-Usage: dotfiles [OPTIONS]
+Usage: dotsrepl [OPTIONS] --path <PATH>
 
 Options:
+  -p, --path <PATH>       Path to dotfiles
   -f, --force             Force overwrite
   -b, --backup            Backup dotfiles
   -l, --link              Link to homedir
   -g, --gitconfig-shared  git config (.gitconfig_shared)
   -h, --help              Print help
   -V, --version           Print version
+```
+
+```bash
+$ dotsrepl -p . -bg
 ```
 
 ## font
