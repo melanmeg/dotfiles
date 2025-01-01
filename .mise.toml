@@ -28,6 +28,7 @@ NODE_ENV = 'development'
 NPM_CONFIG_PREFIX = '~/.npm-global'
 
 [tools]
+1password      = 'latest'
 awscli         = 'latest'
 azure-cli      = 'latest'
 argocd         = 'latest'
