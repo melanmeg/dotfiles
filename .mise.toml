@@ -74,6 +74,7 @@ vals           = 'latest'
 vault          = 'latest'
 vhs            = 'latest'
 yarn           = 'latest'
+yq             = 'latest'
 zoxide         = 'latest'
 
 [plugins]
