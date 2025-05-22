@@ -27,3 +27,6 @@ alias mytcpdump='sudo tcpdump -ntq'
 # trap
 alias mytrap="trap 'echo \"\$BASH_COMMAND\"' DEBUG"
 alias deltrap="trap '' DEBUG"
+
+# global ip
+alias curlgip='curl inet-ip.info'

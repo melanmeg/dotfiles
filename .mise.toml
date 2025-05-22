@@ -29,9 +29,10 @@ NPM_CONFIG_PREFIX = '~/.npm-global'
 
 [tools]
 1password      = 'latest'
+alp            = 'latest'
+argocd         = 'latest'
 awscli         = 'latest'
 azure-cli      = 'latest'
-argocd         = 'latest'
 bat            = 'latest'
 bottom         = 'latest'
 bun            = 'latest'
@@ -64,6 +65,8 @@ poetry         = 'latest'
 pre-commit     = 'latest'
 python         = ['3.10.11', '3.11.9', '3.12.4']
 ripgrep        = 'latest'
+sqlite         = 'latest'
+task           = 'latest'
 terraform      = ['1.9.2']
 terraform-docs = 'latest'
 tflint         = 'latest'

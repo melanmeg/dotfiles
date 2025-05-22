@@ -70,6 +70,7 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   "remote.SSH.enableRemoteCommand": true,
+  "remote.autoForwardPorts": false, // 自動ポートフォワーディングを無効
   "prettier.tabWidth": 2,
   "remote-explorer.foldersSortOrder": "alphabetical",
   "search.quickOpen.includeHistory": false,

@@ -7,7 +7,7 @@ alias tfs='terraform show '  # .terraform/state.tfstate
 alias tfl='terraform state list'  # -state=.terraform/state.tfstate
 alias tfp='terraform plan'  # -state=.terraform/state.tfstate
 alias tfa='terraform apply --auto-approve'  # -state=.terraform/state.tfstate
-alias tfd='terraform destroy --auto-approve'  # -state=.terraform/state.tfstate
+alias tfd='terraform destroy'  # -state=.terraform/state.tfstate
 alias tfr='terraform refresh'  # .terraform/state.tfstate
 
 # gcloud

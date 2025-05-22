@@ -15,6 +15,7 @@
     "golang.go",
     "infracost.infracost",
     "ipedrazas.kubernetes-snippets",
+    "marp-team.marp-vscode",
     "ms-azuretools.vscode-docker",
     "ms-kubernetes-tools.vscode-kubernetes-tools",
     "ms-playwright.playwright",
