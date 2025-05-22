@@ -37,6 +37,16 @@ Options:
 $ ./.bin/dotsrepl -p . -bg
 ```
 
+- mise
+```bash
+$ mise self-update
+$ mise plugin up
+$ mise up
+$ mise cache c
+$ mise cache p
+$ mise prune
+```
+
 ## font
 - 0xProto: https://github.com/0xType/0xProto/blob/main/fonts/0xProto-Regular.ttf
 - source-han-code-jp: https://github.com/adobe-fonts/source-han-code-jp/releases/download/2.012R/SourceHanCodeJP.ttc
