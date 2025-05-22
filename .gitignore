@@ -17,6 +17,7 @@
 !/.bin/
 !/.bin/**
 !/.bin.local
+/.bin/dotsrepl*
 
 # .tmux
 !/.tmux.conf
