@@ -34,7 +34,7 @@ Options:
 ```
 
 ```bash
-$ dotsrepl -p . -bg
+$ ./.bin/dotsrepl -p . -bg
 ```
 
 ## font
